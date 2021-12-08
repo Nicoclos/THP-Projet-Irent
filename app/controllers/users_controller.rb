@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     before_action :authenticate_user!
-    # before_action :user_exists?, :check_user, only: [:show]
+    before_action :current_user, only: [:show]
     
     def show
       @user = current_user
