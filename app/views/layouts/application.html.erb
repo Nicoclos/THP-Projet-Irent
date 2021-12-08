@@ -31,8 +31,9 @@
           </form>
 
           <div class="text-end">
-            <button type="button" class="btn btn-outline-light me-2">Login</button>
-            <button type="button" class="btn btn-warning">Sign-up</button>
+            <a href="<%= destroy_user_session_path(session[:user_id]) %>" data-confirm="Es-tu sûr de vouloir te déconnecter ?" data-method="DELETE" class="dropdown-item">Se déconnecter</a>
+          <%= link_to "Se connecter", new_user_session_path, :class => "dropdown-item"%>
+             <%= link_to "S'inscrire", new_user_registration_path, :class => "dropdown-item"%>
           </div>
         </div>
       </div>
