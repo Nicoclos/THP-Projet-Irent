@@ -1,0 +1,15 @@
+<%= form_for @user do |f| %>
+<ul> 
+
+<li>First Name:</b> <%= f.text_field :first_name %></li>
+<li>Last Name:</b> <%= f.text_field :last_name %></li>
+<li>Address:</b> <%= f.text_area  :address %></li>
+<li>Tel:</b> <%= f.text_field  :phone_number %></li>
+<li>Bio:</b> <%= f.text_area :bio %> </li>
+<li>Date de naissance:</b> <%= f.date_field :age %></li>
+</ul>
+<button type='submit'>Modifier mes infos </button>
+<% end %>
+
+<%= link_to 'edit password', edit_user_registration_path(current_user.id) %> <br>
+<%= link_to 'edit profile', edit_user_path(current_user.id) %>
