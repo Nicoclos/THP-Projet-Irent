@@ -11,3 +11,15 @@
  * It is generally better to create a new file per style scope.
  *
  */
+
+.center {
+    margin: 0 auto; 
+    float: none; 
+    margin-bottom: 10px;
+}
+
+.bottom-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
