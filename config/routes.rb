@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   root to: "items#index"
+  resources :teams, only: :index
+  resources :contact, only: :index
+
 
 
   devise_for :users
