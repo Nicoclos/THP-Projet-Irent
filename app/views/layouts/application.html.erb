@@ -25,13 +25,13 @@
             <li><a class="nav-link px-2 text-white"><%= link_to 'Contact', contact_index_path %></a></li>            
           </ul>
 
-          <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-            <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
-          </form>
+
           <% if user_signed_in? %>
           <div class="text-end">
             <a href="<%= destroy_user_session_path(session[:user_id]) %>" data-confirm="Es-tu sûr de vouloir te déconnecter ?" data-method="DELETE" class="btn btn-outline-secondary">Se déconnecter</a> <br>
+          <%= link_to "Mon compte", user_path(current_user), :class => " btn btn-outline-secondary "%>
             <% else %>
+
           <%= link_to "Se connecter", new_user_session_path, :class => " btn btn-outline-secondary "%>
              <%= link_to "S'inscrire", new_user_registration_path, :class => "btn btn-outline-secondary"%> <br>
           <% end %>
