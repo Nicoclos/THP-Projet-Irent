@@ -1,5 +1,42 @@
 <h1>New Item</h1>
 
-<%= render 'form', item: @item %>
+  <body>
 
-<%= link_to 'Back', items_path %>
+    <div class="page content col-7">
+      <%= form_tag url_for(action: 'create'), method: "post" do %>
+        <div class="form-group">
+        <%= label_tag 'Title', name = 'Title', class: 'font-weight-bold'%>
+        <%= text_field_tag 'title', nil, placeholder: 'Enter a title', class: 'form-control'%>
+        <small id="emailHelp" class="form-text text-muted">3 caracters minimum and 14 caracters maximum.</small>
+        </div>
+        <br>
+
+        <div class="form-group">
+        <%= label_tag 'Description', name = 'Description' , class: 'font-weight-bold'%>
+        <%= text_area_tag 'description', nil, rows: 6, placeholder: 'Write your gossip...', class: 'form-control'%>
+        </div>
+        <br><br>
+
+        <div class="form-group">
+        <%= label_tag 'Price', name = 'Price' , class: 'font-weight-bold'%>
+        <%= text_area_tag 'price', nil, rows: 6, placeholder: 'Write your gossip...', class: 'form-control'%>
+        </div>
+        <br><br>
+
+        <div class="form-group">
+        <%= label_tag 'Location', name = 'Location' , class: 'font-weight-bold'%>
+        <%= text_area_tag 'location', nil, rows: 6, placeholder: 'Write your gossip...', class: 'form-control'%>
+        </div>
+        <br><br>
+
+        <div class="form-group">
+        <%= label_tag 'Img_url', name = 'Img_url' , class: 'font-weight-bold'%>
+        <%= file_field_tag 'img_url', accept: 'image/png,image/gif,image/jpeg', multiple: true %>
+        </div>
+        <br><br>
+
+        <%= submit_tag "Create Post", class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+
+  </body>
