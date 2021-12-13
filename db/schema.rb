@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 2021_12_12_052343) do
+=======
 ActiveRecord::Schema.define(version: 2021_12_09_144542) do
+>>>>>>> development
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,29 +42,77 @@ ActiveRecord::Schema.define(version: 2021_12_09_144542) do
 
   create_table "categories", force: :cascade do |t|
     t.string "title"
-    t.string "image_url"
+    t.string "url_category_img"
+    t.text "description"
+  end
+
+  create_table "hashtags", force: :cascade do |t|
+    t.string "title"
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.string "title"
+    t.string "format"
+    t.string "url_item_img"
+    t.bigint "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_images_on_item_id"
   end
 
   create_table "items", force: :cascade do |t|
     t.string "title"
+    t.string "summary"
     t.text "description"
     t.integer "price"
-    t.string "location"
-    t.string "img_url"
+    t.datetime "start_date"
+    t.datetime "end_data"
+    t.integer "duration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "rents", force: :cascade do |t|
-    t.integer "quantity"
+  create_table "join_table_item_categories", force: :cascade do |t|
+    t.bigint "item_id"
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_join_table_item_categories_on_category_id"
+    t.index ["item_id"], name: "index_join_table_item_categories_on_item_id"
+  end
+
+  create_table "join_table_item_hashtags", force: :cascade do |t|
+    t.bigint "item_id"
+    t.bigint "hashtag_id"
+    t.index ["hashtag_id"], name: "index_join_table_item_hashtags_on_hashtag_id"
+    t.index ["item_id"], name: "index_join_table_item_hashtags_on_item_id"
+  end
+
+  create_table "places", force: :cascade do |t|
+    t.string "city_name"
+    t.string "zip_code"
+    t.string "address"
+    t.integer "latitude"
+    t.integer "longitude"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
+    t.index ["user_id"], name: "index_places_on_user_id"
+  end
+
+  create_table "rents", force: :cascade do |t|
+    t.integer "quantity"
+    t.string "stripe_id"
     t.bigint "item_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_rents_on_item_id"
     t.index ["user_id"], name: "index_rents_on_user_id"
+  end
+
+  create_table "sub_categories", force: :cascade do |t|
+    t.string "title"
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_sub_categories_on_category_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -69,19 +121,24 @@ ActiveRecord::Schema.define(version: 2021_12_09_144542) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.boolean "vendor"
-    t.integer "age"
-    t.integer "phone_number"
     t.string "first_name"
     t.string "last_name"
-    t.string "address"
-    t.string "image_url"
     t.text "bio"
+    t.integer "phone_number"
+    t.string "profile_picture"
+    t.date "date_of_birth"
+    t.boolean "vendor"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+<<<<<<< HEAD
+  add_foreign_key "images", "items"
+  add_foreign_key "places", "users"
+  add_foreign_key "sub_categories", "categories"
+=======
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+>>>>>>> development
 end

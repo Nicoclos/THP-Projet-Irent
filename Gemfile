@@ -58,9 +58,18 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+
 gem "faker"
 gem 'table_print'
 gem 'dotenv'
 gem 'devise', '~> 4.2'
 gem 'mini_magick', '~> 4.8'
+<<<<<<< HEAD
+gem 'stripe'
+#gem 'activestorage' #I dont know why they add this one...
+
+# gem "simple_form"  
+=======
 gem 'activestorage'
+>>>>>>> development
