@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2021_12_12_052343) do
-=======
-ActiveRecord::Schema.define(version: 2021_12_09_144542) do
->>>>>>> development
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,8 +38,9 @@ ActiveRecord::Schema.define(version: 2021_12_09_144542) do
 
   create_table "categories", force: :cascade do |t|
     t.string "title"
-    t.string "url_category_img"
-    t.text "description"
+    t.string "image_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "hashtags", force: :cascade do |t|
@@ -62,12 +59,10 @@ ActiveRecord::Schema.define(version: 2021_12_09_144542) do
 
   create_table "items", force: :cascade do |t|
     t.string "title"
-    t.string "summary"
     t.text "description"
     t.integer "price"
-    t.datetime "start_date"
-    t.datetime "end_data"
-    t.integer "duration"
+    t.string "location"
+    t.string "img_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -100,11 +95,10 @@ ActiveRecord::Schema.define(version: 2021_12_09_144542) do
 
   create_table "rents", force: :cascade do |t|
     t.integer "quantity"
-    t.string "stripe_id"
-    t.bigint "item_id"
-    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "item_id"
     t.index ["item_id"], name: "index_rents_on_item_id"
     t.index ["user_id"], name: "index_rents_on_user_id"
   end
@@ -121,24 +115,22 @@ ActiveRecord::Schema.define(version: 2021_12_09_144542) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "first_name"
-    t.string "last_name"
-    t.text "bio"
-    t.integer "phone_number"
-    t.string "profile_picture"
-    t.date "date_of_birth"
-    t.boolean "vendor"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "vendor"
+    t.integer "age"
+    t.integer "phone_number"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "address"
+    t.string "image_url"
+    t.text "bio"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-<<<<<<< HEAD
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "images", "items"
   add_foreign_key "places", "users"
   add_foreign_key "sub_categories", "categories"
-=======
-  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
->>>>>>> development
 end

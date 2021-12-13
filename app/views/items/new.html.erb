@@ -6,31 +6,31 @@
       <%= form_tag url_for(action: 'create'), method: "post" do %>
         <div class="form-group">
         <%= label_tag 'Title', name = 'Title', class: 'font-weight-bold'%>
-        <%= text_field_tag 'title', nil, placeholder: 'Enter a title', class: 'form-control'%>
+        <%= text_field_tag 'title', nil, placeholder: 'Trottinette electrique', class: 'form-control'%>
         <small id="emailHelp" class="form-text text-muted">3 caracters minimum and 14 caracters maximum.</small>
         </div>
         <br>
 
         <div class="form-group">
         <%= label_tag 'Description', name = 'Description' , class: 'font-weight-bold'%>
-        <%= text_area_tag 'description', nil, rows: 6, placeholder: 'Write your gossip...', class: 'form-control'%>
+        <%= text_area_tag 'description', nil, rows: 6, placeholder: 'La trottinette électrique pliable vous permet de vous déplacer de manière rapide en toute mobilité...', class: 'form-control'%>
         </div>
         <br><br>
 
         <div class="form-group">
         <%= label_tag 'Price', name = 'Price' , class: 'font-weight-bold'%>
-        <%= text_area_tag 'price', nil, rows: 6, placeholder: 'Write your gossip...', class: 'form-control'%>
+        <%= number_field_tag 'price', nil, rows: 6, placeholder: '100 €', class: 'form-control'%>
         </div>
         <br><br>
 
         <div class="form-group">
-        <%= label_tag 'Location', name = 'Location' , class: 'font-weight-bold'%>
-        <%= text_area_tag 'location', nil, rows: 6, placeholder: 'Write your gossip...', class: 'form-control'%>
+        <%= label_tag 'Adresse', name = 'Location' , class: 'font-weight-bold'%>
+        <%= text_field_tag 'location', nil, rows: 6, placeholder: '30 avenue général Leclerc 75020 Paris', class: 'form-control'%>
         </div>
         <br><br>
 
         <div class="form-group">
-        <%= label_tag 'Img_url', name = 'Img_url' , class: 'font-weight-bold'%>
+        <%= label_tag 'Img_url', name = 'Photo' , class: 'font-weight-bold'%>
         <%= file_field_tag 'img_url', accept: 'image/png,image/gif,image/jpeg', multiple: true %>
         </div>
         <br><br>
