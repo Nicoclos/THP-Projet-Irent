@@ -23,9 +23,7 @@ class ItemsController < ApplicationController
     @item.images.build
 
 
-    # @user = current_user
-      
-    # @user.places.build #many association
+
   end
 
   # POST /items or /items.json
@@ -45,15 +43,6 @@ class ItemsController < ApplicationController
 
   # PATCH/PUT /items/1 or /items/1.json
   def update
-    # respond_to do |format|
-    #   if @item.update(item_params)
-    #     format.html { redirect_to @item, notice: "Item was successfully updated." }
-    #     format.json { render :show, status: :ok, location: @item }
-    #   else
-    #     format.html { render :edit, status: :unprocessable_entity }
-    #     format.json { render json: @item.errors, status: :unprocessable_entity }
-    #   end
-    # end
 
     @item = Item.find(params[:id])
     item_params = params.require(:item).permit(:title,:description,:price,:location, images_attributes: [:title,:format,:url_item_img])
@@ -63,11 +52,6 @@ class ItemsController < ApplicationController
     else
       render @item
     end
-
-    # @user = current_user
-    # user_params = params.require(:user).permit(:first_name,:last_name,:bio,:date_of_birth, :phone_number, :profile_picture, places_attributes: [:city_name, :zip_code, :address, :latitude, :longitude])
-    # @user.update(user_params)
-    # redirect_to user_path
 
   end
 
