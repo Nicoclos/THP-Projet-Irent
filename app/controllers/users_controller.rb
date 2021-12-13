@@ -9,11 +9,6 @@ class UsersController < ApplicationController
   
     def edit
       @user = current_user
-      
-      # @user.build_places #singular association
-
-      @user.places.build #many association
-
     end
   
     def update

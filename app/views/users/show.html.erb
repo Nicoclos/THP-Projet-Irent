@@ -14,6 +14,8 @@
 <p><b>Photo:</b> <%= @user.profile_picture %></p>
 <p><b>E-mail:</b> <%= @user.email %></p>
 
+
+<%= link_to 'Secret', edit_user_registration_path(current_user.id) %> <br>
+<%= link_to 'Mes infos personnelles', edit_user_path(current_user.id) %>
 <%= link_to 'Editer mot le mot de passe', edit_user_registration_path(current_user.id) %> <br>
 <%= link_to 'Editer mon profil', edit_user_path(current_user.id) %>
-
