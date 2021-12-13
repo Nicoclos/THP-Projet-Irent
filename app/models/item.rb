@@ -10,6 +10,7 @@ class Item < ApplicationRecord
 
     has_many :join_table_item_category
     has_many :categories, through: :join_table_item_category
+    accepts_nested_attributes_for :images
 
 
 end
