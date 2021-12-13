@@ -6,12 +6,13 @@ class OrdersController < ApplicationController
 
   def show
     @item = Item.all.find_by(id:params[:id])
-    @amount=(@item.price*100).to_i 
-    session[:price]= @amount/100
+    @amount=@item.price.to_i*100
+    session[:price]= @amount
   end
 
   def create 
-    @amount = session[:price]
+    @amount = session[:price]*100
+    puts "#{@amount}"
     begin
       customer = Stripe::Customer.create({
       email: params[:stripeEmail],
