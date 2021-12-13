@@ -61,8 +61,12 @@ ActiveRecord::Schema.define(version: 2021_12_12_052343) do
     t.string "title"
     t.text "description"
     t.integer "price"
+
     t.string "location"
     t.string "img_url"
+    t.integer "available_duration"
+    t.date "available_start"
+    t.date "available_end"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

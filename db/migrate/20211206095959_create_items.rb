@@ -5,9 +5,9 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.string :summary
       t.text :description
       t.integer :price
-      t.datetime :start_date
-      t.datetime :end_data
-      t.integer :duration
+      t.integer :available_duration
+      t.date :available_start
+      t.date :available_end
       
       t.timestamps
     end

@@ -1,15 +1,24 @@
 <p id="notice"><%= notice %></p>
 
 
-<div class="card center" style="width: 18rem;">
- <img class="card-img-top" src="<%= @item.img_url %>">
+<div class="card center" style="width: 50rem;">
+ <img class="card-img-top" src="<%= @item.images %>">
 
  <div class="card-body center">
+     <h3 class="card-title">Title:</h3>
      <h2 class="card-title"><%= @item.title %></h2>
-     <h3 class="card-title">Description</h3>
+     <h3 class="card-title">Sumarry:</h3>
+     <%# <p class="card-text"><%= @item.summary %></p> 
+     <h3 class="card-title">Description:</h3>
      <p class="card-text"><%= @item.description %></p>
-     <h3 class="card-title">Price</h3>
      <p class="card-text"><%= @item.price %> €</p>
+     <h3 class="card-title">Price</h3>
+     <h3 class="card-title">Periode de disponibilité:</h3>
+     <p class="card-text"><%= @item.available_duration %></p>
+     <h3 class="card-title">Début de disponibilité:</h3>
+     <p class="card-text"><%= @item.available_start %></p>
+     <h3 class="card-title">Fin de disponibilité:</h3>
+     <p class="card-text"><%= @item.available_end %></p>
  </div>
  <h5>Les photos </h5>
     <% @item.images.each do |img|%>
@@ -22,6 +31,3 @@
 <%= link_to 'Supprimer', item_path(@item), class: 'btn btn-danger', data: {method: :delete, confirm: 'Voulez vous vraiment supprimer cet article ?'} %>
 
 </div>
-
-
-

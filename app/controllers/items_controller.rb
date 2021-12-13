@@ -9,6 +9,7 @@ class ItemsController < ApplicationController
   # GET /items/1 or /items/1.json
   def show
     @item = Item.find(params[:id])
+
   end
 
   # GET /items/new
@@ -28,7 +29,8 @@ class ItemsController < ApplicationController
 
   # POST /items or /items.json
   def create
-    @item = Item.new(title: params[:title], description: params[:description],price: params[:price],location: params[:location],img_url: params[:img_url])
+ 
+    @item = Item.new(item_params)
 
     respond_to do |format|
       if @item.save
@@ -74,6 +76,6 @@ class ItemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def item_params
-      params.require(:item).permit(:title, :description, :price, :location, :img_url)
+      params.require(:item).permit(:title, :summary, :description, :price, :available_duration, :available_start, :available_end)
     end
 end
