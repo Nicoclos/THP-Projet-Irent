@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: "items#index"
   resources :teams, only: :index
   resources :contact, only: :index
-
+  resources :orders
 
 
   devise_for :users

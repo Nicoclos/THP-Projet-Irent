@@ -4,12 +4,12 @@
 
 <% @items.each do |item| %>
      <div class="card" style="width: 18rem;">
-     <img class="card-img-top" src="<%= item.img_url %>">
+     <img class="card-img-top" src="<%= item.images %>">
   <div class="card-body">
     <h5 class="card-title"><%= item.title %></h5>
     <p class="card-text"><%= item.description %></p>
-    <p class="card-text"><%= item.price %></p>
-    <div class="btn btn-outline-secondary"> <%= link_to 'Show me that boy', item_path(item.id) %></div>
+    <p class="card-text"><%= item.price %> €</p>
+    <div class="btn btn-outline-secondary"> <%= link_to 'Show product', item_path(item.id) %></div>
   </div>
 </div>
     <% end %>

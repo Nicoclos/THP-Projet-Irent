@@ -1,15 +1,29 @@
-<%= form_for @user do |f| %>
-<ul> 
+<%= form_with model: @user do |f| %>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %></li>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %></li>
 
-<li>First Name:</b> <%= f.text_field :first_name %></li>
-<li>Last Name:</b> <%= f.text_field :last_name %></li>
-<li>Address:</b> <%= f.text_area  :address %></li>
-<li>Tel:</b> <%= f.text_field  :phone_number %></li>
-<li>Bio:</b> <%= f.text_area :bio %> </li>
-<li>Date de naissance:</b> <%= f.date_field :age %></li>
-</ul>
-<button type='submit'>Modifier mes infos </button>
+
+    <%= f.label :phone_number %>
+    <%= f.text_field  :phone_number %></li>
+    <%= f.label :bio %>
+    <%= f.text_area :bio %> </li>
+    <%= f.label :data_of_birth %>
+    <%= f.date_field :date_of_birth %></li>
+        <%= f.fields_for :places do |s| %>
+            <%= s.label :city_name%>
+            <%= s.text_field :city_name %></p>
+            <%= s.label :address %>
+            <%= s.text_field :address %></p>
+            <%= s.label :zip_code %>
+            <%= s.text_field :zip_code %></p>
+        <% end %>
+
+    <%= f.submit "Mettre à jour information " %>
 <% end %>
 
 <%= link_to 'edit password', edit_user_registration_path(current_user.id) %> <br>
 <%= link_to 'edit profile', edit_user_path(current_user.id) %>
+
+
