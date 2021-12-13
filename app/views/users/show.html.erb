@@ -2,11 +2,18 @@
 
 <p><b>Prénom:</b> <%= @user.first_name %></p>
 <p><b>Nom:</b> <%= @user.last_name %></p>
+    <% @user.places.each do |usr|%>
+    <p><b>Ville:</b> <%= usr.city_name %></p>
+    <p><b>Adresse:</b> <%= usr.address %></p>
+    <p><b>Code Postal:</b> <%= usr.zip_code %></p>
+    <% usr.longitude %></p>
+    <% usr.latitude %></p>
+    <%end%>
 <p><b>bio:</b> <%= @user.bio %></p>
-<p><b>Adresse:</b> <%= @user.address %></p>
 <p><b>Numéro:</b> <%= @user.phone_number %></p>
-<p><b>Photo:</b> <%= @user.image_url %></p>
+<p><b>Photo:</b> <%= @user.profile_picture %></p>
 <p><b>E-mail:</b> <%= @user.email %></p>
 
-<%= link_to 'Secret', edit_user_registration_path(current_user.id) %> <br>
-<%= link_to 'Mes infos personnelles', edit_user_path(current_user.id) %>
+<%= link_to 'Editer mot le mot de passe', edit_user_registration_path(current_user.id) %> <br>
+<%= link_to 'Editer mon profil', edit_user_path(current_user.id) %>
+

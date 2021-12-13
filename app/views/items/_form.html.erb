@@ -17,6 +17,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :summary %>
+    <%= form.text_field :summary %>
+  </div>
+
+  <div class="field">
     <%= form.label :description %>
     <%= form.text_area :description %>
   </div>
@@ -27,13 +32,18 @@
   </div>
 
   <div class="field">
-    <%= form.label :location %>
-    <%= form.text_field :location %>
+    <%= form.label :available_start %>
+    <%= form.datetime_select :available_start %>
   </div>
 
   <div class="field">
-    <%= form.label :img_url %>
-    <%= form.text_field :img_url %>
+    <%= form.label :available_end %>
+    <%= form.datetime_select :available_end %>
+  </div>
+
+  <div class="field">
+    <%= form.label :available_duration %>
+    <%= form.number_field :available_duration %>
   </div>
 
   <div class="actions">
