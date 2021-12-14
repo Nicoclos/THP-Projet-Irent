@@ -5,12 +5,20 @@ class OrdersController < ApplicationController
   end
 
   def show
+    @order= Order.new
     @item = Item.all.find_by(id:params[:id])
     @amount=@item.price.to_i*100
     session[:price]= @amount
   end
 
   def create 
+    user_id = current_user.id.to_s
+    @order = Order.new(quantity: 1, stripe_id: user_id)
+    if @order.save
+      puts "Yes man"
+    else
+      puts "error!"
+    end  
     @amount = session[:price]*100
     puts "#{@amount}"
     begin
@@ -29,5 +37,5 @@ class OrdersController < ApplicationController
       redirect_to new_order_path
     end
   end
-  
+
 end
