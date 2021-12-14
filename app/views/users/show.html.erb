@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<h1>Page Profil</h1>
 <p><b>Prénom:</b> <%= @user.first_name %></p>
 <p><b>Nom:</b> <%= @user.last_name %></p>
     <% @user.places.each do |usr|%>
@@ -11,8 +12,27 @@
     <%end%>
 <p><b>bio:</b> <%= @user.bio %></p>
 <p><b>Numéro:</b> <%= @user.phone_number %></p>
-<p><b>Photo:</b> <%= @user.profile_picture %></p>
 <p><b>E-mail:</b> <%= @user.email %></p>
+
+
+<p>Bienvenue sur la page d'ajout d'un avatar pour le User portant l'id : <%=@user.id%></p>
+<h3>Avatar actuel</h3>
+
+<%if @user.profile_picture.attached?%>
+  <%= image_tag @user.profile_picture, alt: 'avatar' %>
+<%else%>
+  <p>=== Il n'y a pas encore d'avatar lié à cet utilisateur ===</p>
+<%end%>
+
+<h3>Changer d'avatar ?</h3>
+<%= form_tag user_profile_picture_index_path(@user.id), multipart: true do %>
+  <%= file_field_tag :profile_picture %>
+  <%= submit_tag "mettre à jour" %>
+<% end %>
+
+
+
+
 
 
 <%= link_to 'Secret', edit_user_registration_path(current_user.id) %> <br>
