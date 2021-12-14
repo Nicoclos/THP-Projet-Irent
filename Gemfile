@@ -65,7 +65,7 @@ gem 'table_print'
 gem 'dotenv'
 gem 'devise', '~> 4.2'
 gem 'mini_magick', '~> 4.8'
-gem 'stripe'
-#gem 'activestorage' #I dont know why they add this one...
+gem 'stripe'  
 
-# gem "simple_form"  
+#for searching bar
+gem 'pg_search'

@@ -68,6 +68,13 @@ class ItemsController < ApplicationController
     
   end
 
+  def search_output
+    keywords = params[:search_keywords]
+    @found_items = item.roughly_spelled_like(keywords)
+    @filtred_items = filter_items(@found_items)
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_item

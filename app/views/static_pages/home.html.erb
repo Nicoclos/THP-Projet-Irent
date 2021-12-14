@@ -1,0 +1,18 @@
+
+    <div class="text-center">
+      <%= form_with model: @items, url: search_output_path, local: true, method: :get, multipart: true do |form| %>
+    
+              <%= form.collection_select(:category_id, get_categories, :id, :title, {:prompt => 'Catégorie'}, {class: "custom-select transparent-input"}) %>
+
+            
+              <%= form.text_field :search_keywords, class: "transparent-input", id: "search_keywords", placeholder: "Recherche" %>
+
+              <%= button_tag(type: "submit", class: "btn btn-primary btn-lg") do %>
+              Recherche
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+    </div>

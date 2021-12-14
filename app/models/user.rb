@@ -13,4 +13,7 @@ class User < ApplicationRecord
     has_one_attached :profile_picture
 
 
+    belongs_to :place
+
+
   end
