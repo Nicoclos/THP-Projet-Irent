@@ -1,14 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 
-<div class="card center" style="width: 50rem;">
- <img class="card-img-top" src="<%= @item.images %>">
-
- <div class="card-body center">
      <h3 class="card-title">Title:</h3>
      <h2 class="card-title"><%= @item.title %></h2>
      <h3 class="card-title">Sumarry:</h3>
-     <%# <p class="card-text"><%= @item.summary %></p> 
+     <p class="card-text"><%= @item.summary %></p> 
      <h3 class="card-title">Description:</h3>
      <p class="card-text"><%= @item.description %></p>
      <p class="card-text"><%= @item.price %> €</p>
@@ -39,10 +35,11 @@
 
 <p>Bienvenue sur la page d'ajout d'un avatar pour le User portant l'id : <%=@item.id%></p>
 <h3>Avatar actuel</h3>
-
-
+<% @item.img_products.each do |i|%>
+  <%= image_tag(i)%>
+<%end%>
 <h3>Changer d'image ?</h3>
-<%= form_tag item_img_products_path(@item), multipart: true do %>
+<%= form_tag item_img_products_path(@item.id), multipart: true do %>
   <%= file_field_tag :img_products %>
   <%= submit_tag "mettre à jour" %>
 <% end %>

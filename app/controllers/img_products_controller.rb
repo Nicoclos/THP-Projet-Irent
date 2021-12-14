@@ -7,3 +7,6 @@ class ImgProductsController < ApplicationController
     end
 
   end
+
+
+  
