@@ -1,14 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 
-<div class="card center" style="width: 50rem;">
- <img class="card-img-top" src="<%= @item.images %>">
-
- <div class="card-body center">
      <h3 class="card-title">Title:</h3>
      <h2 class="card-title"><%= @item.title %></h2>
      <h3 class="card-title">Sumarry:</h3>
-     <%# <p class="card-text"><%= @item.summary %></p> 
+     <p class="card-text"><%= @item.summary %></p> 
      <h3 class="card-title">Description:</h3>
      <p class="card-text"><%= @item.description %></p>
      <p class="card-text"><%= @item.price %> €</p>
@@ -24,6 +20,9 @@
     <% @item.images.each do |img|%>
     <p><b></b> <%= img.url_item_img %></p>
     <%end%>
+<!------------------------------------------------->
+
+
 
 <div class="bottom-buttons">
 <%= link_to 'Edit', edit_item_path(@item) %> <%= link_to 'Back', items_path %></div>
@@ -31,3 +30,16 @@
 <%= link_to 'Supprimer', item_path(@item), class: 'btn btn-danger', data: {method: :delete, confirm: 'Voulez vous vraiment supprimer cet article ?'} %>
 
 </div>
+<!------------------------------------------------------------------------------------>
+<h1>Page Show Item</h1>
+
+<p>Bienvenue sur la page d'ajout d'un avatar pour le User portant l'id : <%=@item.id%></p>
+<h3>Avatar actuel</h3>
+<% @item.img_products.each do |i|%>
+  <%= image_tag(i)%>
+<%end%>
+<h3>Changer d'image ?</h3>
+<%= form_tag item_img_products_path(@item.id), multipart: true do %>
+  <%= file_field_tag :img_products %>
+  <%= submit_tag "mettre à jour" %>
+<% end %>

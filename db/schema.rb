@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 2021_12_12_052343) do
     t.string "summary"
     t.text "description"
     t.integer "price"
+    t.string "img_products"
     t.integer "available_duration"
     t.date "available_start"
     t.date "available_end"
