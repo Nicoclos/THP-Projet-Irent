@@ -29,7 +29,8 @@ class OrdersController < ApplicationController
     @amount = session[:price]*100
     puts "#{@dl.inspect}"
     puts "#{@amount}"
-    @dl.delete
+    @dl[:available]=false
+    @dl.update(:available=>@dl[:available])
     begin
       customer = Stripe::Customer.create({
       email: params[:stripeEmail],
