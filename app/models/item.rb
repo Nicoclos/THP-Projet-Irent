@@ -12,5 +12,7 @@ class Item < ApplicationRecord
     has_many :categories, through: :join_table_item_category
     accepts_nested_attributes_for :images
 
+    belongs_to :user
+
 
 end
