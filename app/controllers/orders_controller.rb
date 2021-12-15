@@ -16,7 +16,7 @@ class OrdersController < ApplicationController
   def create
     user_id = current_user.id.to_s
      item = Item.all.find_by(id:current_user.id)
-     item= item[0]
+     item= item[0id:params[:id]]
     #  item = item.to_s
   
     user_usr = current_user.id
