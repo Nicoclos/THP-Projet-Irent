@@ -47,7 +47,7 @@ class ItemsController < ApplicationController
   def update
 
     @item = Item.find(params[:id])
-    item_params = params.require(:item).permit(:title,:description,:price,:summary, :available_duration, :available_start, :available_end, images_attributes: [:title,:format,:url_item_img])
+    item_params = params.require(:item).permit(:title,:description,:price,:summary, :available, :available_duration, :available_start, :available_end, images_attributes: [:title,:format,:url_item_img])
     if @item.update(item_params)
       flash[:notice] = "produit à jour"
       redirect_to @item
