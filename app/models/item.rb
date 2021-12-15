@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
 
-    has_many :rents
-    has_many :users, through: :rents
+    has_many :orders
+    has_many :users, through: :orders
 
     has_many :images, dependent: :destroy
 
