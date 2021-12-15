@@ -14,6 +14,7 @@ class OrdersController < ApplicationController
   end
 
   def create
+
     item= session[:a]
     user_id = current_user.id.to_s
     user_usr = current_user.id
@@ -26,6 +27,7 @@ class OrdersController < ApplicationController
       puts "error!"
     end  
     @amount = session[:price]*100
+    puts "#{@dl.inspect}"
     puts "#{@amount}"
     @dl.delete
     begin
