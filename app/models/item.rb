@@ -3,7 +3,7 @@ class Item < ApplicationRecord
     has_many :orders
     has_many :users, through: :orders
 
-    has_many :images
+    has_many :images, dependent: :destroy
 
     has_many :join_table_item_hashtag
     has_many :hashtags, through: :join_table_item_hashtag
