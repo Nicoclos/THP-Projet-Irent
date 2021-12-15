@@ -67,3 +67,19 @@
 .team-center{
   margin-left: -500px;
 }
+
+.width-full {
+  width: 100%;
+}
+
+.gap {
+  column-gap: 10px;
+}
+
+.go-left {
+  margin-left: 100px;
+}
+
+.card-size {
+  width: 25rem;
+}
