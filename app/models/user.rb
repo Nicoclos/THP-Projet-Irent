@@ -10,5 +10,7 @@ class User < ApplicationRecord
     has_many :places
     accepts_nested_attributes_for :places
 
+    has_many :items
+
 
   end
