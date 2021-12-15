@@ -112,7 +112,9 @@ Rails.application.configure do
 
   #################################################################
 
-
+  config.action_mailer.delivery_method = :test
+  config.action_mailer.default_url_options = { :host => 'https://irent-project.herokuapp.com/', :protocol => 'https'}
+  end
 
 
 end

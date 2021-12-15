@@ -86,11 +86,7 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
   #################################################################
   
-# SMTP settings for maildev
-config.action_mailer.delivery_method = :smtp
-config.action_mailer.smtp_settings = {
-    address: "localhost",
-    port: 1025,
-    enable_starttls_auto: false
-}
+# SMTP settings for sendrid
+config.action_mailer.delivery_method = :test
+config.action_mailer.default_url_options = { :host => 'http://localhost:3000/'}
 end
