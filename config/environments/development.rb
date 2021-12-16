@@ -69,6 +69,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   # Set the SMTP Action Mailer Configuration
+  config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.smtp_settings = {
@@ -84,5 +85,8 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.perform_caching = false
   #################################################################
-
+  
+# SMTP settings for sendrid
+config.action_mailer.delivery_method = :test
+config.action_mailer.default_url_options = { :host => 'http://localhost:3000/'}
 end
