@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
 
-    has_many :rents
-    has_many :users, through: :rents
+    has_many :orders
+    has_many :users, through: :orders
 
     has_many :images, dependent: :destroy
 
@@ -11,6 +11,8 @@ class Item < ApplicationRecord
     has_many :join_table_item_category
     has_many :categories, through: :join_table_item_category
     accepts_nested_attributes_for :images
+
+    belongs_to :user
 
 
 end

@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.4'
-gem 'stripe'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.6'
 # Use postgresql as the database for Active Record
@@ -66,6 +66,3 @@ gem 'dotenv'
 gem 'devise', '~> 4.2'
 gem 'mini_magick', '~> 4.8'
 gem 'stripe'
-#gem 'activestorage' #I dont know why they add this one...
-
-# gem "simple_form"  

@@ -1,18 +1,78 @@
+
 <p id="notice"><%= notice %></p>
+<%# <div class="alert alert-success" role="alert"> %>
 
-<h1>Items</h1>
-
-<% @items.each do |item| %>
-     <div class="card" style="width: 18rem;">
-     <img class="card-img-top" src="<%= item.images %>">
-  <div class="card-body">
-    <h5 class="card-title"><%= item.title %></h5>
-    <p class="card-text"><%= item.description %></p>
-    <p class="card-text"><%= item.price %> €</p>
-    <div class="btn btn-outline-secondary"> <%= link_to 'Show product', item_path(item.id) %></div>
+<div class="j jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">L'expérience iRent</h1>
+    <p class="lead">Vous cherchez des objets ou des outils pour les utiliser de manière ponctuelle ?  Alors vous êtes au bon endroit !<br> Avec cette plateforme, il vous est possible de louer toute une panoplie d'objets qui animeront votre quotidien ! <br> Cherchez l'objet que vous souhaitez, vérifier sa disponibilité, et <strong><u>louez-le !</u></strong></p>
   </div>
 </div>
-    <% end %>
 <br>
+<!-------------------------------------------------------------------------------------->
+<div class="search-dropdown">
+    <div class="wrapper">
+      <div class="item menu">
+        
+      </div>
+      <div class="item gallery">
+        <div class="dot dot1"></div>
+        <div class="dot dot2"></div>
+        <div class="dot dot3"></div>
+        <div class="dot dot4"></div>
+        <div class="dot dot5"></div>
+        <div class="dot dot6"></div>
+      </div>
+      <button class="item add">
+        <div class="circle">
+          <div class="close">
+          <div class="line line1"></div>
+          <div class="line line2"></div>
+        </div>
+        <input type="search" placeholder="search" class="search" />
+        
+      </button>
 
-<%= link_to 'New Item', new_item_path %>
+      <div class="box">
+        <div class="box-line box-line1">Mode</div>
+        <div class="box-line box-line2">Maison</div>
+        <div class="box-line box-line3">Multimédia</div>
+        <div class="box-line box-line4">Loisir</div>
+        <div class="box-line box-line4">Animaux</div>
+        <div class="box-line box-line4">Matériel</div>
+        <div class="box-line box-line4">Professionnel</div>
+        <div class="box-line box-line4">Services</div>
+      </div>
+    </div>
+
+  </div>
+    <div class="effect"></div>
+
+<!-------------------------------------------------------------------------------------->
+<div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <% @items.each do |item| %>
+        <div class="col">
+        
+          <div class="card shadow-sm text-center card-size">
+            <img class="card-img-top" src="<%= item.images %>">
+            <h5 class="card-title justify-content-between"><%= item.title %></h5>
+
+            <div class="card-body">
+              <p class="card-text"><%= item.summary %></p>
+              
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Show product', item_path(item.id) %></button>
+                </div>
+                <small class="text-muted"><%= item.created_at%></small>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>  
+      </div>
+    </div>
+    <br>
+</div>
