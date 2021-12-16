@@ -9,6 +9,6 @@ class UserMailMailer < ApplicationMailer
       @url  = 'http://monsite.fr/login' 
   
       # c'est cet appel à mail() qui permet d'envoyer l’e-mail en définissant destinataire et sujet.
-      mail(to: @user.email, subject: 'Bienvenue chez nous !') 
+      mail(to: @user.email, subject: 'Bienvenue au sein de la communauté IRENT !') 
     end
 end
