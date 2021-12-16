@@ -4,7 +4,9 @@ class CreateJoinTableItemCategories < ActiveRecord::Migration[5.2]
 
       t.belongs_to :item, index: true
       t.belongs_to :category, index: true
- 
+      
+
+
     end
   end
 end

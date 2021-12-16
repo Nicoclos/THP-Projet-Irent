@@ -68,6 +68,8 @@ ActiveRecord::Schema.define(version: 2021_12_15_210026) do
     t.datetime "updated_at", null: false
     t.boolean "available", default: true
     t.bigint "user_id"
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
@@ -140,6 +142,7 @@ ActiveRecord::Schema.define(version: 2021_12_15_210026) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "images", "items"
+  add_foreign_key "items", "categories"
   add_foreign_key "items", "users"
   add_foreign_key "places", "users"
   add_foreign_key "sub_categories", "categories"
