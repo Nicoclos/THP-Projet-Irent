@@ -36,4 +36,5 @@ class UsersController < ApplicationController
       @user.update(user_params)
       redirect_to user_path
     end
+    
   end
