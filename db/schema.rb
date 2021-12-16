@@ -61,7 +61,6 @@ ActiveRecord::Schema.define(version: 2021_12_15_210026) do
     t.string "summary"
     t.text "description"
     t.integer "price"
-    t.string "img_products"
     t.integer "available_duration"
     t.date "available_start"
     t.date "available_end"
@@ -86,17 +85,6 @@ ActiveRecord::Schema.define(version: 2021_12_15_210026) do
     t.index ["item_id"], name: "index_join_table_item_hashtags_on_item_id"
   end
 
-  create_table "orders", force: :cascade do |t|
-    t.integer "quantity"
-    t.string "stripe_id"
-    t.bigint "item_id"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_orders_on_item_id"
-    t.index ["user_id"], name: "index_orders_on_user_id"
-  end
-
   create_table "places", force: :cascade do |t|
     t.string "city_name"
     t.string "zip_code"
@@ -107,6 +95,17 @@ ActiveRecord::Schema.define(version: 2021_12_15_210026) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_places_on_user_id"
+  end
+
+  create_table "rents", force: :cascade do |t|
+    t.integer "quantity"
+    t.string "stripe_id"
+    t.bigint "item_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_rents_on_item_id"
+    t.index ["user_id"], name: "index_rents_on_user_id"
   end
 
   create_table "sub_categories", force: :cascade do |t|
