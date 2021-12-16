@@ -13,7 +13,11 @@ class User < ApplicationRecord
 
 
     has_many :items
-
+    
+    after_create :welcome_send
+    def welcome_send
+      UserMailMailer.welcome_email(self).deliver_now
+    end
 
     has_many_attached :profile_picture
 

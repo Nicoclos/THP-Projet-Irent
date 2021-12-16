@@ -96,25 +96,7 @@ Rails.application.configure do
   ########CONFIGURATION ACTION MAILER #######################
 
   config.action_mailer.delivery_method = :smtp
-  host = 'https://apprails-test141121.herokuapp.com/' #replace with your own url
-  config.action_mailer.default_url_options = { host: host }
-
-  # SMTP settings for gmail
-
-  config.action_mailer.smtp_settings = {
-  :address => "smtp.gmail.com",
-  :port => 587,
-  :user_name => ENV['GMAIL_LOGIN'],
-  :password => ENV['GMAIL_PWD'],
-  :authentication => "plain",
-  :enable_starttls_auto => true
-  }
-
-  #################################################################
-
-  config.action_mailer.delivery_method = :test
   config.action_mailer.default_url_options = { :host => 'https://irent-project.herokuapp.com/', :protocol => 'https'}
-  end
 
-
+ 
 end

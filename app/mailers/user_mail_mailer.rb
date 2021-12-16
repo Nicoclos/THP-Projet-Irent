@@ -1,6 +1,5 @@
 class UserMailMailer < ApplicationMailer
-    default from: 'from@example.com'
-  
+    default from: 'louis.lionel@gmail.com'
     def welcome_email(user)
       #on récupère l'instance user pour ensuite pouvoir la passer à la view en @user
       @user = user 
@@ -9,6 +8,8 @@ class UserMailMailer < ApplicationMailer
       @url  = 'http://monsite.fr/login' 
   
       # c'est cet appel à mail() qui permet d'envoyer l’e-mail en définissant destinataire et sujet.
-      mail(to: @user.email, subject: 'Bienvenue chez nous !') 
+      mail(to: @user.email, subject: 'Bienvenue au sein de la communauté IRENT !') 
     end
 end
+
+
