@@ -29,7 +29,7 @@ class ItemsController < ApplicationController
 
   # POST /items or /items.json
   def create
-    
+ 
     @item = Item.new(item_params)
 
     respond_to do |format|
@@ -47,19 +47,13 @@ class ItemsController < ApplicationController
   def update
 
     @item = Item.find(params[:id])
-    item_params = params.require(:item).permit(:title,:description,:price,:summary, :available_duration, :img_products, :available_start, :available_end, images_attributes: [:title,:format,:url_item_img])
+    item_params = params.require(:item).permit(:title,:description,:price,:summary, :available, :available_duration, :available_start, :available_end, images_attributes: [:title,:format,:url_item_img])
     if @item.update(item_params)
       flash[:notice] = "produit à jour"
       redirect_to @item
     else
       render @item
     end
-
-    # if params[:activity][:images].present?
-    #   params[:activity][:images].each do |image|
-    #   activity.images.attach(image)
-    # end
-
 
   end
 

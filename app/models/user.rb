@@ -4,13 +4,13 @@ class User < ApplicationRecord
     devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-    has_many :rents
-    has_many :items, through: :rents
+    has_many :orders
+    has_many :items, through: :orders
 
     has_many :places
     accepts_nested_attributes_for :places
 
-    has_one_attached :profile_picture
+    has_many :items
 
 
   end
