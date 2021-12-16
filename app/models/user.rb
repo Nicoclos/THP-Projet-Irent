@@ -7,8 +7,10 @@ class User < ApplicationRecord
     has_many :orders
     has_many :items, through: :orders
 
+
     has_many :places
     accepts_nested_attributes_for :places
+
 
     has_many :items
     
@@ -17,4 +19,10 @@ class User < ApplicationRecord
       UserMailMailer.welcome_email(self).deliver_now
     end
 
+    has_many_attached :profile_picture
+
+
   end
+
+
+
