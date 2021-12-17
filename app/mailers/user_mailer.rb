@@ -1,4 +1,4 @@
-class UserMailMailer < ApplicationMailer
+class UserMailer < ApplicationMailer
     default from: 'louis.lionel@gmail.com'
     def welcome_email(user)
       #on récupère l'instance user pour ensuite pouvoir la passer à la view en @user
@@ -11,5 +11,3 @@ class UserMailMailer < ApplicationMailer
       mail(to: @user.email, subject: 'Bienvenue au sein de la communauté IRENT !') 
     end
 end
-
-

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+<h1>Bienvenue chez Irent<%= @user.email %> !</h1>
+<p>
+Ton compte a bien été créé, tu peux te connecter avec ton adresse email <%= @user.email %> ou tu username.
+
+<p>Pour te connecter, c'est <%= link_to 'c par là', @url %> !</p>
+
+</body>
+
+</html>
