@@ -25,12 +25,17 @@ class OrdersController < ApplicationController
       puts "Yes man"
     else
       puts "error!"
-    end  
-    @amount = session[:price]*100
-    puts "#{@dl.inspect}"
-    puts "#{@amount}"
-    @dl[:available]=false
-    @dl.update(:available=>@dl[:available])
+    end
+    
+    @amount = params[:price].to_i
+    @price_converted = @amount * 100
+
+    # @amount = session[:price]*100
+    
+    # puts "#{@dl.inspect}"
+    # puts "#{@amount}"
+    # @dl[:available]=false
+    # @dl.update(:available=>@dl[:available])
     begin
       customer = Stripe::Customer.create({
       email: params[:stripeEmail],
@@ -38,14 +43,26 @@ class OrdersController < ApplicationController
       })
       charge = Stripe::Charge.create({
       customer: customer.id,
-      amount: @amount,
+      amount: @price_converted,
       description: "Achat d'un produit",
       currency: 'eur',
       })
+
+      if charge
+        @order = Order.find(params[:order_id])
+        # @order.is_paid = true
+        # @order.save
+        flash[:success] = "Bravo, tu as réservé ta séance et payé #{@amount} €!"
+        payment_buyer_confirmation(@order)
+        # payment_vendor_confirmation(@order)
+        redirect_to user_path(current_user.id)
+      end
     rescue Stripe::CardError => e
       flash[:error] = e.message
       redirect_to new_order_path
     end
+    def payment_buyer_confirmation(order)
+      UserMailer.payment_buyer_confirmation(order).deliver_now
+    end
   end
-
 end
