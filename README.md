@@ -1,24 +1,47 @@
-# README
+# iRent - the next big revolution in eshops universe !
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**iRent** is a **Ruby On Rails** web application. It's a **renting platform between individuals** made by [Adrien](https://github.com/Adrien011), [Jordan](https://github.com/jordan-creyelman), [Juan](https://github.com/Ju4n-P), [Lionel](https://github.com/lionelcoding) and [Nico](https://github.com/Nicoclos).
 
-Things you may want to cover:
+It's the final project for The Hacking Project coding bootcamp, wxinter 2021 session .
 
-* Ruby version
+## Where to find our application?
 
-* System dependencies
+You can find our application on **Heroku**:
 
-* Configuration
+**Production version** -> [HERE](irent-project.herokuapp.com/)
 
-* Database creation
+## How to use the app?
 
-* Database initialization
+This app is using **Ruby 2.7.4** and **Rails 5.2.6**.
 
-* How to run the test suite
+This web app in RoR is using a list of **gems**, don't forget to run `bundle install` to create a `gemfile.lock` to store all dependencies that your app needed.
 
-* Services (job queues, cache servers, search engines, etc.)
+## Create and initialiaze the Database 
 
-* Deployment instructions
+This app is using `PostgreSQL` for the Database.
 
-* ...
+When you __clone the app__ from this repository, you will have to create a **database**, run:
+
+````ruby
+rails db:create
+````
+
+Then you will have to upload the migrations by executing:
+
+````ruby
+rails db:migrate
+````
+
+All the **migrations** are going **up**. You can check it with:
+
+````ruby
+rails db:migrate:status
+`````
+
+Now you have **a functional Database** you can fill it.
+If you don't want to fill it yourself, we made you a super Seed. You can fill you Database by running:
+
+```ruby
+rails db:seed
+````
+#### Now you are ready to get this machinery work!
