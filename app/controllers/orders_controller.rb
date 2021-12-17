@@ -47,5 +47,13 @@ class OrdersController < ApplicationController
       redirect_to new_order_path
     end
   end
+  
+  def payment_buyer_send(order)
+    UserMailer.payment_buyer_confirmation(order).deliver_now
+  end
+  
+  def payment_vendor_send(order)
+    UserMailer.payment_vendor_confirmation(order).deliver_now
+  end
 
 end
