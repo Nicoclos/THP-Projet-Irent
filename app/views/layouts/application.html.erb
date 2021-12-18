@@ -17,9 +17,6 @@
 
   </head>
   <body>
-  <% flash.each do |name, msg| %> 
-  <%= msg %> 
-<% end %>
     <header class="navbar navbar-expand-lg navbar-light sticky p-3 bg-dark">
       <div class="container d-flex align-items-center justify-content-center justify-content-lg-start">
         
@@ -31,9 +28,15 @@
 
         <div class="d-flex flex-wrap width-full gap">
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 gap go-left">
-              <li><%= link_to 'Home', items_path, :class => "btn btn-outline-primary" %></li>
-              <li><%= link_to 'Team', teams_path, :class => "btn btn-outline-primary" %></li>
+              <li><%= link_to 'Accueil', items_path, :class => "btn btn-outline-primary" %></li>
+              <li><%= link_to 'Le concept', teams_path, :class => "btn btn-outline-primary" %></li>
               <li><%= link_to 'Contact', contact_index_path, :class => "btn btn-outline-primary" %></li>
+              
+              <% if user_signed_in? %>
+              <li><%= link_to 'Mettre en location', new_item_path, :class => "btn btn-outline-primary" %></li>
+              <% else %>
+
+              <% end %>            
             </ul>
 
 
