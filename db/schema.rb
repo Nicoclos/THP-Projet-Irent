@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 2021_12_15_210026) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "available", default: true
+    t.string "title_category"
     t.bigint "user_id"
     t.bigint "category_id"
     t.index ["category_id"], name: "index_items_on_category_id"
@@ -129,6 +130,8 @@ ActiveRecord::Schema.define(version: 2021_12_15_210026) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false
+    t.boolean "has_items", default: false
+    t.boolean "has_orders", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["place_id"], name: "index_users_on_place_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

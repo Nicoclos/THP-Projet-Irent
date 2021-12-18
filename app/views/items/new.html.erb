@@ -10,6 +10,7 @@
   <li>Periode de disponibilité:</b> <%= f.number_field :available_duration %> </li>
   <li>Début de disponibilité:</b> <%= f.date_field :available_start %></li>
   <li>Fin de disponibilité:</b> <%= f.date_field :available_end %></li>
+  <li>category</b> <%= f.text_field :title_category%></li>
 
       <%= f.fields_for :images do |s|%>
         <%= s.label :title%>

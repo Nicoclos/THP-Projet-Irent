@@ -29,9 +29,12 @@ class ItemsController < ApplicationController
 
   # POST /items or /items.json
   def create
- 
-    @item = Item.new(item_params)
-
+    @item = Item.new(user_id: current_user.id,category_id: 1)
+    @item.save
+    @item.update(item_params)
+    @category=Category.find_by(title:@item[:title_category])
+    @item = Item.new(user_id:current_user.id,category_id:@category[:id])
+    @item.update(item_params)
     respond_to do |format|
       if @item.save
         format.html { redirect_to @item, notice: "Item was successfully created." }
@@ -76,6 +79,9 @@ class ItemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def item_params
-      params.require(:item).permit(:title, :summary, :description, :price, :available_duration, :available_start, :available_end)
+      params.require(:item).permit(:title, :summary, :description, :price, :available_duration, :available_start, :available_end,:title_category)
+    end
+    def category_params
+      params.require(:item).permit()
     end
 end
