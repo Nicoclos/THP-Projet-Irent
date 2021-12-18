@@ -43,3 +43,12 @@ end
       available_end: Faker::Date.in_date_period(year: 2022, month: 9),
     )
 end
+Category.create(
+  title: "sport"
+)
+Category.create(
+  title: "electro"
+)
+Category.create(
+  title: "sexe"
+)

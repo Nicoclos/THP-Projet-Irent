@@ -4,7 +4,12 @@ class UsersController < ApplicationController
     
     def show
       @user = current_user
-
+      if @user[:has_items]== true
+        @items = Item.find(user_id:@user[:id])
+      end
+      if @user[:has_orders]== true
+        @items = Order.find(user_id:@user[:id])
+      end
     end
 
     # def create
