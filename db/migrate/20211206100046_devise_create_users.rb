@@ -40,7 +40,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.date :date_of_birth
       t.boolean :vendor
       
-
+      t.belongs_to :place, index: true
       t.timestamps null: false
     end
 

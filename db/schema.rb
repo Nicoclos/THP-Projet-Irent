@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 2021_12_15_210026) do
     t.string "summary"
     t.text "description"
     t.integer "price"
+    t.string "img_products"
     t.integer "available_duration"
     t.date "available_start"
     t.date "available_end"
@@ -73,18 +74,22 @@ ActiveRecord::Schema.define(version: 2021_12_15_210026) do
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
-  create_table "join_table_item_categories", force: :cascade do |t|
-    t.bigint "item_id"
-    t.bigint "category_id"
-    t.index ["category_id"], name: "index_join_table_item_categories_on_category_id"
-    t.index ["item_id"], name: "index_join_table_item_categories_on_item_id"
-  end
-
   create_table "join_table_item_hashtags", force: :cascade do |t|
     t.bigint "item_id"
     t.bigint "hashtag_id"
     t.index ["hashtag_id"], name: "index_join_table_item_hashtags_on_hashtag_id"
     t.index ["item_id"], name: "index_join_table_item_hashtags_on_item_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "quantity"
+    t.string "stripe_id"
+    t.bigint "item_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_orders_on_item_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "places", force: :cascade do |t|
@@ -93,21 +98,8 @@ ActiveRecord::Schema.define(version: 2021_12_15_210026) do
     t.string "address"
     t.integer "latitude"
     t.integer "longitude"
-    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_places_on_user_id"
-  end
-
-  create_table "rents", force: :cascade do |t|
-    t.integer "quantity"
-    t.string "stripe_id"
-    t.bigint "item_id"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_rents_on_item_id"
-    t.index ["user_id"], name: "index_rents_on_user_id"
   end
 
   create_table "sub_categories", force: :cascade do |t|
@@ -133,10 +125,12 @@ ActiveRecord::Schema.define(version: 2021_12_15_210026) do
     t.string "profile_picture"
     t.date "date_of_birth"
     t.boolean "vendor"
+    t.bigint "place_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["place_id"], name: "index_users_on_place_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
@@ -144,6 +138,5 @@ ActiveRecord::Schema.define(version: 2021_12_15_210026) do
   add_foreign_key "images", "items"
   add_foreign_key "items", "categories"
   add_foreign_key "items", "users"
-  add_foreign_key "places", "users"
   add_foreign_key "sub_categories", "categories"
 end
