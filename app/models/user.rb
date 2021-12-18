@@ -19,6 +19,7 @@ class User < ApplicationRecord
       UserMailer.welcome_email(self).deliver_now
     end
 
+
     has_many_attached :profile_picture
 
 
