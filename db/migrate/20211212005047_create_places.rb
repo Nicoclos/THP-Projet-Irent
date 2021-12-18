@@ -7,6 +7,8 @@ class CreatePlaces < ActiveRecord::Migration[5.2]
       t.integer :latitude
       t.integer :longitude
 
+      t.references :user, foreign_key: true, index: true
+
       t.timestamps
     end
   end

@@ -7,9 +7,10 @@ class User < ApplicationRecord
     has_many :orders
     has_many :items, through: :orders
 
-    belongs_to :place
 
-    # accepts_nested_attributes_for :places
+    has_many :places
+    accepts_nested_attributes_for :places
+
 
     has_many :items
     
