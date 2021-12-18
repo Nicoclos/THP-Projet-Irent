@@ -4,11 +4,22 @@
 <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
 </head>
 <body>
-<h1>Votre transaction chez Irent !</h1>
-<p>
-Vous transaction a été passé avec succès StripMontant ou tu username.
 
-<p>A bientôt  !</p>
+<h2>Confirmation de paiement pour votre article : <strong> <%= @order.item.title %> <strong>!</h2>
+    <hr>
+    <p>
+      Salut <%= @order.user.first_name %>,<br>
+    </p>
+      Cet email pour te confirmer qu'un règlement pour la location de l'article <%= @order.item.title %>  vient d'être effectué.<br>
+      <br>
+      En voilà les grandes lignes:<br>
+      <br>
+      Montant du règlement : <%= @order.item.price %> €<br> 
+    </p>
+    <p>
+      À très vite au sein de la communauté Irent ! 
+      <br><br>
+      L'équipe de Irent
 
 </body>
 
