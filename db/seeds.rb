@@ -52,3 +52,5 @@ Category.create(
 Category.create(
   title: "sexe"
 )
+
+puts "der seed is generate mein general !"
