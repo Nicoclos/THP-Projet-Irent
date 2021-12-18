@@ -12,13 +12,11 @@
  *
  */
 
-/* -------------- */
 
 .main-container{
   margin-bottom: 40px
 }
 
-/* ------------- */
 .j{
   background-color: rgb(163, 191, 157);
 }
@@ -35,9 +33,6 @@
     justify-content: space-between;
 }
 
-/* -------------- */
-
-
 .flex-container-team {
 display: flex;
 flex-direction: row;
@@ -51,10 +46,8 @@ align-items: center;
 order: 0;
 flex: 0 1 auto;
 align-self: auto;
-/* padding-left: 25px */
 }
 
-/* ----- */
 
 .width-full {
   width: 100%;
