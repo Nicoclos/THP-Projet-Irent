@@ -12,6 +12,7 @@ class UsersController < ApplicationController
       if @user[:has_orders]== true
         @items = Order.find(user_id:@user[:id])
       end
+      @item = @user.items
     end
   
     def edit
@@ -29,6 +30,7 @@ class UsersController < ApplicationController
   private
   def set_user
     @user = User.find(params[:id])
+    
   end
 
   def same_user
