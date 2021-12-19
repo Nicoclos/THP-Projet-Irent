@@ -1,43 +1,78 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Page Profil</h1>
-<p><b>Prénom:</b> <%= @user.first_name %></p>
-<p><b>Nom:</b> <%= @user.last_name %></p>
-<p><b>Ville:</b> <%= @user.city_name %></p>
-<p><b>Adresse:</b> <%= @user.address %></p>
-<p><b>Code Postal:</b> <%= @user.zip_code %></p>
-<% @user.longitude %></p>
-<% @user.latitude %></p>
+<h1 class="text-center">Bienvenue <%=@user.first_name%></h1>
 
-<p><b>bio:</b> <%= @user.bio %></p>
-<p><b>Numéro:</b> <%= @user.phone_number %></p>
-<p><b>E-mail:</b> <%= @user.email %></p>
+<div class="span3 well">
+        <center>
+        <a href="#aboutModal" data-toggle="modal" data-target="#myModal"><img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRbezqZpEuwGSvitKy3wrwnth5kysKdRqBW54cAszm_wiutku3R" name="aboutme" width="140" height="140" class="img-circle"></a>
+        <h3><%=@user.email%></h3>
+        <em><%=@user.bio%></em>
+		</center>
+    </div>
+<div class="card card-custom2 shadow p-3">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-3">
+        <div class="avatar-big m-auto">
 
+        </div>
+      </div>
+      <div class="col-9">
+        <table class="table table-borderless max-width-18 m-auto m-4">
+          <tbody>
+            <tr>
+              <th scope="row">Prénom:</th>
+              <td><%=@user.first_name%></td>
+            </tr>
+            <tr>
+              <th scope="col">Nom:</th>
+              <td><%=@user.last_name%></td>
+            </tr>
+            <tr>
+              <th scope="col">Adresse e-mail:</th>
+              <td><%=@user.email%></td>
+            </tr>
+            <tr>
+              <th scope="col">Téléphone</th>
+              <td><%=@user.phone_number%></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>Bienvenue sur la page d'ajout d'un avatar pour le User portant l'id : <%=@user.id%></p>
-<h3>Avatar actuel</h3>
+          <!--<form class="form" action="##" method="post" id="registrationForm">-->
 
 
 <%if current_user.profile_picture.attached?%>
   <%= image_tag @user.profile_picture, alt: 'avatar' %>
 <%else%>
-  <p>=== Il n'y a pas encore d'avatar lié à cet utilisateur ===</p>
+  <p>0 davatar</p>
 <%end%>
 
+<center>
+
+
+
+
+<div class="mt-8">
+	<div style="padding-left: 100px; margin-top: 15px; margin-bottom: 40px;">
+<%= link_to 'Secret', edit_user_registration_path(current_user.id), class: 'btn btn-primary' %> 
+<%= link_to 'Mes infos personnelles', edit_user_path(current_user.id), class: 'btn btn-success' %>
+<%= link_to 'Editer mot le mot de passe', edit_user_registration_path(current_user.id), class: 'btn btn-secondary' %>
+<%= link_to 'Editer mon profil', edit_user_path(current_user.id), class: 'btn btn-dark' %>
+</div>
 	<% if logged_in? && @user == current_user %>
 
 <h3>Changer d'avatar ?</h3>
 <%= form_tag user_profile_picture_index_path(@user.id), multipart: true do %>
   <%= file_field_tag :profile_picture %>
-  <%= submit_tag "mettre à jour" %>
+  <%= submit_tag "Ok",class: 'btn btn-dark' %>
 <% end %>
 
 
 <% end %>
-
-
-<%= link_to 'Secret', edit_user_registration_path(current_user.id) %> <br>
-<%= link_to 'Mes infos personnelles', edit_user_path(current_user.id) %>
-<%= link_to 'Editer mot le mot de passe', edit_user_registration_path(current_user.id) %> <br>
-<%= link_to 'Editer mon profil', edit_user_path(current_user.id) %>
-
+</div>
+</center>
