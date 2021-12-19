@@ -1,28 +1,25 @@
 
-<h1>New Item</h1>
+<h1>Nouvel objet</h1>
 
 <%= form_for @item do |f| %><ul> 
 
-  <li>title:</b> <%= f.text_field :title %></li>
+  <li>Titre:</b> <%= f.text_field :title %></li>
 
-  <li>Description:</b> <%= f.text_field  :description %></li>
+  <li>Description:</b> <%= f.text_area  :description %></li>
   <li>Prix</b> <%= f.text_field  :price %></li>
-  <li>Periode de disponibilité:</b> <%= f.number_field :available_duration %> </li>
+  <li>Période de disponibilité:</b> <%= f.number_field :available_duration %> </li>
+
+              <div class="col-sm-6">
+                <label for="mobile"><h4>Votre catégorie</h4></label>
+<%= f.select :category, options_for_select(["Sport", "Bricolage", "Electroménager", "Other"],:disabled => ["Select One"]), :class => 'genForm_dropBox' %>
+              </div>
+            </div>
 
 <!---  <button type='submit'>Modifier mes infos </button> -->
 
 
-<%if current_user.img_products.attached?%>
-  <%= image_tag @user.img_products, alt: 'avatar' %>
-<%else%>
-  <p>=== Il n'y a pas encore d'avatar lié à cet utilisateur ===</p>
-<%end%>
 
-<h3>Changer d'avatar ?</h3>
-<%= form_tag item_img_products_path(@user.id), multipart: true do %>
-  <%= file_field_tag :img_products %>
-  <%= submit_tag "mettre à jour" %>
+
+<%= f.submit "Postez votre annonce " %>
 <% end %>
 
-        <% end %>
-<%= f.submit "Mettre à jour information " %>

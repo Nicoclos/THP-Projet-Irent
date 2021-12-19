@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
     before_action :authenticate_user!
     before_action :current_user, only: [:show]
-    before_action :same_user, only: [:update]
     before_action :set_user, only: [:show, :edit, :update]
+    before_action :same_user, only: [:edit, :update]
 
     def show
       @user = set_user
@@ -24,8 +24,6 @@ class UsersController < ApplicationController
       @user.update(user_params)
       redirect_to user_path
     end
-    
-  end
 
 
   private
@@ -34,8 +32,9 @@ class UsersController < ApplicationController
   end
 
   def same_user
-    if current_user != @user
+    if current_user != @user && !current_user.admin?
       flash[:alert] = "You can only edit your own account"
-    
+      redirect_to @user
+    end
     end
   end
