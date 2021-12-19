@@ -7,18 +7,18 @@
   <div class="field">
     <%= f.label :password, "New password" %><br />
     <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+      <em>(<%= @minimum_password_length %> caractères minimums)</em><br />
     <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+    <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "form-control", placeholder: "Entrez un nouveau mot de passe" %>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation, "Confirmer mot de passe" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "Confirmez votre nouveau mot de passe" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Changer mot de passe" %>
+    <%= f.submit "Changer mot de passe" class: "btn btn-warning" %>
   </div>
 <% end %>
 
