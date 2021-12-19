@@ -1,54 +1,48 @@
 <p id="notice"><%= notice %></p>
 
-<div class="row mb-5">
-<h5>Les photos </h5>
-    <% @item.images.each do |img|%>
-    <p><b></b> <%= img.img_products %></p>
-    <%end%>
-</div>
+<button type="button" class="btn btn-link" style="padding-left: 25px;"><%= link_to '<  Back', items_path %></button>
 
-<div class="row mb-5">
-  <h3 class="">Title:</h3>
-  <h2 class=""><%= @item.title %></h2>
-</div>
-
-<div class="row mb-5">
-  <div class="column">
-    <h3 class="">Description:</h3>
-    <p class=""><%= @item.description %></p>
-  </div>
-  <div class="column">
-    <h3 class="">Price</h3><br>
-    <p class=""><%= @item.price %> €</p><br>
-    <h3 class="">Periode de disponibilité:</h3><br>
-    <p class=""><%= @item.available_duration %></p><br>
-    <h3 class="">Début de disponibilité:</h3><br>
-    <p class=""><%= @item.available_start %></p><br>
-    <h3 class="">Fin de disponibilité:</h3><br>
-    <p class=""><%= @item.available_end %></p>
+<div class="container d-flex justify-content-center">
+  <div class="row mb-2">
+    <h1 class=""><%= @item.title %></h1>
   </div>
 </div>
- 
+
+<div class="container d-flex justify-content-center" style="margin-top: 15px">
+  <!--<div class="row mb-5">-->
+  <img src= "https://images.unsplash.com/photo-1511717004695-7862a87f4b3d?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8Y2F0cyxjYXR8fHx8fHwxNjM4MzU5OTEy&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600" alt="item picture" width="1200" height="500"> 
+  <!--<%= image_tag "adrien.png", class: "img-fluid", style: "width: 1000", alt: "item picture"%>-->
+    <!--<%= @item.img_products %>-->  
+  </div>
+</div>
+
+<div class="container d-flex flex-direction-raw justify-content-space-around">
+  <div class="col d-flex flex-direction-raw">
+    <div class="col">
+      <h3 class="">Description:</h3>
+      <p class=""><%= @item.description %></p>
+    </div>              
+  </div>
+  <div class="col d-flex flex-direction-raw justify-content-center" style="float:right; text-align: right">
+    <div class="col">
+      <h3 class="">Price</h3>
+      <p class=""><%= @item.price %> €</p>
+      <h3 class="">Periode de disponibilité:</h3>
+      <p class=""><%= @item.available_duration %></p>
+    </div>              
+  </div>
+</div>
+
 <!------------------------------------------------->
 
 
-
-<div class="bottom-buttons">
-<%= link_to 'Edit', edit_item_path(@item) %> <%= link_to 'Back', items_path %></div>
-<%= link_to 'acheter', order_path(@item) %></div>
-<%= link_to 'Supprimer', item_path(@item), class: 'btn btn-danger', data: {method: :delete, confirm: 'Voulez vous vraiment supprimer cet article ?'} %>
-
+<div>
+	<% if logged_in? %>
+	<div style="padding-left: 100px; margin-top: 15px; margin-bottom: 40px;">
+    <%= link_to 'Acheter', order_path(@item), class: 'btn btn-success' %>
+  <% end %>  
+  <% if @item.user == current_user %>
+    <%= link_to "Editer l'objet", edit_item_path(@item), class: 'btn btn-light' %> 
+    <%= link_to "Supprimer l'objet", item_path(@item), class: 'btn btn-danger', data: {method: :delete, confirm: 'Voulez vous vraiment supprimer cet article ?'} %> </div>
+  <%end%>
 </div>
-<!------------------------------------------------------------------------------------>
-<h1>Page Show Item</h1>
-
-<p>Bienvenue sur la page d'ajout d'un avatar pour le User portant l'id : <%=@item.id%></p>
-<h3>Avatar actuel</h3>
-<% @item.img_products.each do |i|%>
-  <%= image_tag(i)%>
-<%end%>
-<h3>Changer d'image ?</h3>
-<%= form_tag item_img_products_path(@item.id), multipart: true do %>
-  <%= file_field_tag :img_products %>
-  <%= submit_tag "mettre à jour" %>
-<% end %>

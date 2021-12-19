@@ -1,29 +1,81 @@
-<%= form_with model: @user do |f| %>
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %></li>
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %></li>
-
-
-    <%= f.label :phone_number %>
-    <%= f.text_field  :phone_number %></li>
-    <%= f.label :bio %>
-    <%= f.text_area :bio %> </li>
-    <%= f.label :data_of_birth %>
-    <%= f.date_field :date_of_birth %></li>
-        <%= f.fields_for :places do |s| %>
-            <%= s.label :city_name%>
-            <%= s.text_field :city_name %></p>
-            <%= s.label :address %>
-            <%= s.text_field :address %></p>
-            <%= s.label :zip_code %>
-            <%= s.text_field :zip_code %></p>
-        <% end %>
-
-    <%= f.submit "Mettre à jour information " %>
+<section class="user-profile">
+  <div class="container">
+  <div class="row">
+    <div class="col-sm-12"><h1><%= current_user.first_name %></h1></div>
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="text-center">
+          <img
+            src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png"
+            class="avatar img-circle img-thumbnail"
+            alt="avatar"
+          />
+          <h6>Upload a different photo...</h6>
+          <input type="file" class="text-center center-block file-upload" />
+        </div>
+      </div>
+      <div class="col-sm-9">
+        <div class="tab-content">
+          <%= form_with model: @user do |f| %>
+          <!--<form class="form" action="##" method="post" id="registrationForm">-->
+            <div class="form-group">
+              <div class="col-sm-6">
+                <label for="first_name"><h4>Prénom</h4></label>
+                <%= f.text_field :first_name, class: 'form-control',placeholder: "Prénom" %></li>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-6">
+                <label for="last_name"><h4>Nom de famille</h4></label>
+                <%= f.text_field :last_name, class: 'form-control',placeholder: "Nom de famille" %></li>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-6">
+                <label for="phone"><h4>Téléphone</h4></label>
+                <%= f.text_field :phone_number, class: 'form-control',placeholder: "Numéro de téléphone" %></li>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-6">
+                <label for="mobile"><h4>Présentation</h4></label>
+                <%= f.text_field :bio, class: 'form-control',placeholder: "Bio" %></li>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-6">
+                <label for="mobile"><h4>Votre ville</h4></label>
+                <%= f.text_field :city_name, class: 'form-control',placeholder: "Votre ville" %></li>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-6">
+                <label for="mobile"><h4>Adresse</h4></label>
+                <%= f.text_field :address, class: 'form-control',placeholder: "Rue & numéro de rue" %></li>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-6">
+                <label for="mobile"><h4>Code Postal</h4></label>
+                <%= f.text_field :zip_code, class: 'form-control',placeholder: "Code postal" %></li>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-12">
+                <br />
+        <%= f.submit "Sauvegarder modification ", class: "btn btn-lg btn-success glyphicon glyphicon-ok-sign" %>
 <% end %>
 
-<%= link_to 'edit password', edit_user_registration_path(current_user.id) %> <br>
-<%= link_to 'edit profile', edit_user_path(current_user.id) %>
+<%= link_to 'edit password', edit_user_registration_path(current_user.id), class: "btn btn-lg btn-danger    " %> <br>
+<br>
 
 
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  
+</section>

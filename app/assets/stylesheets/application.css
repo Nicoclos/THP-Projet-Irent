@@ -12,6 +12,20 @@
  *
  */
 
+/* ----------DEVISE---------- */
+
+
+
+
+/* ------------------------- */
+.so-white {
+  color: white;
+}
+
+.background-exchange {
+  background-image: linear-gradient(165deg, rgba(72, 32, 136, 0.849) 0%, rgba(62, 40, 121, 0.6) 20%),url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTW0k1to1IpdeK5MsYW5vJJjDhyLjLoL6iV_w&usqp=CAU");
+  
+}
 
 .main-container{
   margin-bottom: 40px
@@ -67,4 +81,12 @@ align-self: auto;
 
 .no-error {
   margin-bottom: 400px;
+}
+
+/*---------------------------*/
+
+.container-new-item-view {
+  margin-top: 30px;
+  align-content: center;
+  align-items: center;
 }
