@@ -10,7 +10,7 @@
 
 <div class="container d-flex justify-content-center" style="margin-top: 15px">
   <!--<div class="row mb-5">-->
-  <img src= "https://images.unsplash.com/photo-1511717004695-7862a87f4b3d?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8Y2F0cyxjYXR8fHx8fHwxNjM4MzU5OTEy&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600" alt="item picture" width="1200" height="500"> 
+  <img src= "https://images.unsplash.com/photo-1511717004695-7862a87f4b3d?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8Y2F0cyxjYXR8fHx8fHwxNjM4MzU5OTEy&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600" alt="item picture" width="1100" height="450"> 
   <!--<%= image_tag "adrien.png", class: "img-fluid", style: "width: 1000", alt: "item picture"%>-->
     <!--<%= @item.img_products %>-->  
   </div>
@@ -25,9 +25,9 @@
   </div>
   <div class="col d-flex flex-direction-raw justify-content-center" style="float:right; text-align: right">
     <div class="col">
-      <h3 class="">Price</h3>
+      <h3 class="">Prix</h3>
       <p class=""><%= @item.price %> €</p>
-      <h3 class="">Periode de disponibilité:</h3>
+      <h3 class="">Disponibilité (en nombre de jours) :</h3>
       <p class=""><%= @item.available_duration %></p>
     </div>              
   </div>
@@ -39,7 +39,7 @@
 <div>
 	<% if logged_in? %>
 	<div style="padding-left: 100px; margin-top: 15px; margin-bottom: 40px;">
-    <%= link_to 'Acheter', order_path(@item), class: 'btn btn-success' %>
+    <%= link_to 'Acheter', order_path(@item), class: 'btn btn-success', style: 'float:right; text-align: right' %>
   <% end %>  
   <% if @item.user == current_user %>
     <%= link_to "Editer l'objet", edit_item_path(@item), class: 'btn btn-light' %> 

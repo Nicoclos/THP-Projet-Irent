@@ -1,14 +1,14 @@
-<h2>Forgot your password?</h2>
+<h2 style="padding-top: 15px;">Vous avez oublié votre mot de passe ?</h2>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Entrez votre email" %>
   </div>
   <div class="actions">
-    <%= f.submit "Envoyez-moi les instructions pour réinitialiser mon mot de passe" %>
+    <%= f.submit "Envoyez-moi les instructions pour réinitialiser mon mot de passe", class: "btn btn-primary", style: "margin-top: 10px;" %>
   </div>
 <% end %>
 

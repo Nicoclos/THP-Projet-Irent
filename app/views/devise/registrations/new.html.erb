@@ -20,7 +20,7 @@
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                         <%= f.label :email %><br />
-                        <%= f.email_field :email, autofocus: true, autocomplete: "e-mail" %> 
+                        <%= f.email_field :email, autofocus: true, autocomplete: "e-mail", class: "form-control", placeholder: "Entrez votre email"%> 
                     </div>
                   </div>
 
@@ -28,7 +28,7 @@
                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                       <%= f.label :password %> <br />    
-                      <%= f.password_field :password, autocomplete: "mot de passe" %> 
+                      <%= f.password_field :password, autocomplete: "mot de passe", class: "form-control", placeholder: "Entrez votre mot de passe" %> 
                     </div>
                   </div>
 
@@ -36,7 +36,7 @@
                       <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                         <%= f.label :password_confirmation %><br /> 
-                        <%= f.password_field :password_confirmation, autocomplete: "mot de passe" %> 
+                        <%= f.password_field :password_confirmation, autocomplete: "mot de passe", class: "form-control", placeholder: "Confirmez votre mot de passe" %> 
                     </div>
                   </div>
 
@@ -54,7 +54,7 @@
 
                   
                   <div class="actions"> 
-                  <%= f.submit "S'enregistrer" %> 
+                  <%= f.submit "S'enregistrer", class: "btn btn-primary" %> 
                   </div> 
                   <% end %> 
 
