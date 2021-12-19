@@ -93,16 +93,6 @@ ActiveRecord::Schema.define(version: 2021_12_15_210026) do
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
-  create_table "places", force: :cascade do |t|
-    t.string "city_name"
-    t.string "zip_code"
-    t.string "address"
-    t.integer "latitude"
-    t.integer "longitude"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "sub_categories", force: :cascade do |t|
     t.string "title"
     t.bigint "category_id"
@@ -126,14 +116,17 @@ ActiveRecord::Schema.define(version: 2021_12_15_210026) do
     t.string "profile_picture"
     t.date "date_of_birth"
     t.boolean "vendor"
-    t.bigint "place_id"
+    t.string "city_name"
+    t.string "zip_code"
+    t.string "address"
+    t.integer "latitude"
+    t.integer "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false
     t.boolean "has_items", default: false
     t.boolean "has_orders", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["place_id"], name: "index_users_on_place_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
