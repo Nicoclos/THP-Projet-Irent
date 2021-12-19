@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       if @user[:has_orders]== true
         @items = Order.find(user_id:@user[:id])
       end
-      @item = @user.items
+      @items = @user.items
     end
   
     def edit
