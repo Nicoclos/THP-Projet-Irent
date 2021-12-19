@@ -59,10 +59,8 @@
 
 <div class="mt-8">
 	<div style="padding-left: 100px; margin-top: 15px; margin-bottom: 40px;">
-<%= link_to 'Secret', edit_user_registration_path(current_user.id), class: 'btn btn-primary' %> 
 <%= link_to 'Mes infos personnelles', edit_user_path(current_user.id), class: 'btn btn-success' %>
 <%= link_to 'Editer mot le mot de passe', edit_user_registration_path(current_user.id), class: 'btn btn-secondary' %>
-<%= link_to 'Editer mon profil', edit_user_path(current_user.id), class: 'btn btn-dark' %>
 </div>
 	<% if logged_in? && @user == current_user %>
 
