@@ -1,25 +1,58 @@
-
-<h1>New Item</h1>
-
-<%= form_for @item do |f| %><ul> 
-
-  <li>title:</b> <%= f.text_field :title %></li>
-
-  <li>Description:</b> <%= f.text_area  :description %></li>
-  <li>Prix</b> <%= f.text_field  :price %></li>
-  <li>Periode de disponibilité:</b> <%= f.number_field :available_duration %> </li>
-
+  <div class="container container-new-item-view">
+    <h1>Création d'une page pour votre article </h1>  
+    <div class="row">
+    <div class="col-sm-12"><h1><%= current_user.first_name %></h1></div>
+      <div class="col-sm-9">
+        <div class="tab-content">
+        <%= form_for @item do |f| %> 
+            <div class="form-group">
               <div class="col-sm-6">
-                <label for="mobile"><h4>Votre catégorie</h4></label>
-<%= f.select :category, options_for_select(["Sport", "Bricolage", "Electroménager", "Other"],:disabled => ["Select One"]), :class => 'genForm_dropBox' %>
+                <label for="title"><h4>Title :</h4></label>
+                <%= f.text_field :title, class: 'form-control',placeholder: "Title" %></li>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-6">
+                <label for="last_name"><h4>Description :</h4></label>
+                <%= f.text_area  :description, class: 'form-control',placeholder: "Description" %></li>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-6">
+                <label for="price"><h4>Prix :</h4></label>
+                <%= f.text_field  :price, class: 'form-control',placeholder: "Prix" %></li>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-6">
+                <label for="mobile"><h4>Période de disponibilité :</h4></label>
+                <%= f.number_field :available_duration , class: 'form-control',placeholder: "Période de disponibilité" %></li>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-6">
+                <label for="mobile"><h4>Rajouter une image :</h4></label>    
+                <input type="file" class="text-center center-block file-upload"/>
               </div>
             </div>
 
-<!---  <button type='submit'>Modifier mes infos </button> -->
+            <div class="form-group">
+              <div class="col-sm-6">
+                <label for="mobile"><h4>Votre catégorie</h4></label>
+                <%= f.select :category, options_for_select(["Sport", "Bricolage", "Electroménager", "Other"],:disabled => ["Select One"]), :class => 'genForm_dropBox' %>
+              </div>
+            </div>
 
+              <div class="col-sm-12">
+                      <%= f.submit "Postez votre annonce", class: "btn btn-lg btn-primary glyphicon glyphicon-ok-sign" %>
+              <% end %>
+              <%= link_to 'Retour en arrière', items_path %>
 
-
-
-<%= f.submit "Postez votre annonce " %>
-<% end %>
-
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  

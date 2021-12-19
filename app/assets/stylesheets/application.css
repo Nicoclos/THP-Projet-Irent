@@ -74,3 +74,11 @@ align-self: auto;
 .no-error {
   margin-bottom: 400px;
 }
+
+/*---------------------------*/
+
+.container-new-item-view {
+  margin-top: 30px;
+  align-content: center;
+  align-items: center;
+}
