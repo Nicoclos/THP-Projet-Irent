@@ -12,7 +12,12 @@
  *
  */
 
+/* ----------DEVISE---------- */
 
+
+
+
+/* ------------------------- */
 .main-container{
   margin-bottom: 40px
 }
@@ -30,7 +35,8 @@
 .bottom-buttons {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: flex-start;
 }
 
 .flex-container-team {
