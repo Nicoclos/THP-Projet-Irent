@@ -24,12 +24,10 @@
             <img class="card-img-top" src="<%= item.img_products %>">
             <h5 class="card-title justify-content-between"><%= item.title %></h5>
 
-            <div class="card-body">
-              <p class="card-text"><%= item.summary %></p>
-              
+            <div class="card-body">              
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Show product', item_path(item.id) %></button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Voir', item_path(item.id) %></button>
                 </div>
                 <small class="text-muted"><%= item.created_at%></small>
               </div>
