@@ -44,13 +44,19 @@ end
     )
 end
 Category.create(
-  title: "sport"
+  title: "Sport"
 )
 Category.create(
-  title: "electro"
+  title: "Jeux"
 )
 Category.create(
-  title: "sexe"
+  title: "Electronique"
+)
+Category.create(
+  title: "Ordinateur"
+)
+Category.create(
+  title: "Velo"
 )
 
 puts "der seed is generate mein general !"

@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
     before_action :authenticate_user!
     before_action :current_user, only: [:show]
-    
+    before_action :same_user, only: [:update]
+    before_action :set_user, only: [:show, :edit, :update]
+
     def show
-      @user = current_user
+      @user = set_user
       if @user[:has_items]== true
         @items = Item.find(user_id:@user[:id])
       end
@@ -23,4 +25,17 @@ class UsersController < ApplicationController
       redirect_to user_path
     end
     
+  end
+
+
+  private
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  def same_user
+    if current_user != @user
+      flash[:alert] = "You can only edit your own account"
+    
+    end
   end

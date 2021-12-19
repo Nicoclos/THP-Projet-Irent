@@ -39,8 +39,12 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :profile_picture
       t.date :date_of_birth
       t.boolean :vendor
-      
-      t.belongs_to :place, index: true
+      t.string :city_name
+      t.string :zip_code
+      t.string :address
+      t.integer :latitude
+      t.integer :longitude
+
       t.timestamps null: false
     end
 
