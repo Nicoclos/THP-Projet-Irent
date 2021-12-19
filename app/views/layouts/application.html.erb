@@ -43,7 +43,15 @@
             <% if user_signed_in? %>
             <div class="text-end d-flex align-items-center gap">
               <a href="<%= destroy_user_session_path(session[:user_id]) %>" data-confirm="Es-tu sûr de vouloir te déconnecter ?" data-method="DELETE" class="btn btn-outline-secondary">Se déconnecter</a> <br>
-            <%= link_to "Mon compte", user_path(current_user), :class => " btn btn-outline-secondary "%>
+                      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href=<%=user_path(current_user)  %> id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= current_user.email %>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to "View your profile", user_path(current_user), class: "dropdown-item" %>
+            <%= link_to "Edit your profile", edit_user_path(current_user), class: "dropdown-item" %>
+          </div>
+        </li>
               <% else %>
 
             <%= link_to "Se connecter", new_user_session_path, :class => " btn btn-outline-secondary "%>

@@ -39,9 +39,10 @@
 
 <!------------------------------------------------->
 
+
 <div>
 	<% if logged_in? %>
-	<div style="padding-left: 100px; margin-top: 15px;margin-bottom: 40px;"">
+	<div style="padding-left: 100px; margin-top: 15px; margin-bottom: 40px;">
     <%= link_to 'Acheter', order_path(@item), class: 'btn btn-success' %>
   <% end %>  
   <% if @item.user == current_user %>
