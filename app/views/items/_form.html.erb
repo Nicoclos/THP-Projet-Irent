@@ -1,44 +1,44 @@
   <div class="container container-new-item-view">
   <h1>Modifier votre article </h1>  
     <div class="row">
-    <div class="col-sm-12"><h1><%= current_user.first_name %></h1></div>
+    <div class="col-sm-12"><%= current_user.first_name %></div>
       <div class="col-sm-9">
         <div class="tab-content">
         <%= form_for @item do |f| %> 
             <div class="form-group">
               <div class="col-sm-6">
-                <label for="title"><h4>Title :</h4></label>
+                <label for="title">Title :</label>
                 <%= f.text_field :title, class: 'form-control',placeholder: "Title" %></li>
               </div>
             </div>
             <div class="form-group">
               <div class="col-sm-6">
-                <label for="last_name"><h4>Description :</h4></label>
+                <label for="last_name">Description :</label>
                 <%= f.text_area  :description, class: 'form-control',placeholder: "Description" %></li>
               </div>
             </div>
             <div class="form-group">
               <div class="col-sm-6">
-                <label for="price"><h4>Prix :</h4></label>
+                <label for="price">Prix :</label>
                 <%= f.text_field  :price, class: 'form-control',placeholder: "Prix" %></li>
               </div>
             </div>
             <div class="form-group">
               <div class="col-sm-6">
-                <label for="mobile"><h4>Période de disponibilité :</h4></label>
+                <label for="mobile">Période de disponibilité :</label>
                 <%= f.number_field :available_duration , class: 'form-control',placeholder: "Période de disponibilité" %></li>
               </div>
             </div>
             <div class="form-group">
               <div class="col-sm-6">
-                <label for="mobile"><h4>Rajouter une image :</h4></label>    
+                <label for="mobile">Rajouter une image :</label>    
                 <input type="file" class="text-center center-block file-upload"/>
               </div>
             </div>
 
             <div class="form-group">
               <div class="col-sm-6">
-                <label for="mobile"><h4>Votre catégorie</h4></label>
+                <label for="mobile">Votre catégorie</label>
                 <%= f.select :category, options_for_select(["Sport", "Bricolage", "Electroménager", "Other"],:disabled => ["Select One"]), :class => 'genForm_dropBox' %>
               </div>
             </div>
