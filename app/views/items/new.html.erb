@@ -1,13 +1,13 @@
 
-<h1>New Item</h1>
+<h1>Nouvel objet</h1>
 
 <%= form_for @item do |f| %><ul> 
 
-  <li>title:</b> <%= f.text_field :title %></li>
+  <li>Titre:</b> <%= f.text_field :title %></li>
 
   <li>Description:</b> <%= f.text_area  :description %></li>
   <li>Prix</b> <%= f.text_field  :price %></li>
-  <li>Periode de disponibilité:</b> <%= f.number_field :available_duration %> </li>
+  <li>Période de disponibilité:</b> <%= f.number_field :available_duration %> </li>
 
               <div class="col-sm-6">
                 <label for="mobile"><h4>Votre catégorie</h4></label>
