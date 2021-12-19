@@ -26,6 +26,21 @@
 
             <div class="card-body">
               <p class="card-text"><%= item.summary %></p>
+
+            <p class="card-text"><%= truncate(item.description, length: 100) %>
+            </p>
+
+
+
+            <div class="card-header font-italic">
+            Posté par <%= item.user.email if item.user %>
+            <%= link_to "voir", user_path(item.user) %>
+
+
+
+            
+          </div>
+          
               
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">

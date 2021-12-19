@@ -2,14 +2,6 @@
 
 <h1>Page Profil</h1>
 <p><b>Prénom:</b> <%= @user.first_name %></p>
-<p><b>Nom:</b> <%= @user.last_name %></p>
-    <% @user.places.each do |usr|%>
-    <p><b>Ville:</b> <%= usr.city_name %></p>
-    <p><b>Adresse:</b> <%= usr.address %></p>
-    <p><b>Code Postal:</b> <%= usr.zip_code %></p>
-    <% usr.longitude %></p>
-    <% usr.latitude %></p>
-    <%end%>
 <p><b>bio:</b> <%= @user.bio %></p>
 <p><b>Numéro:</b> <%= @user.phone_number %></p>
 <p><b>E-mail:</b> <%= @user.email %></p>
@@ -25,13 +17,15 @@
   <p>=== Il n'y a pas encore d'avatar lié à cet utilisateur ===</p>
 <%end%>
 
+	<% if logged_in? && @user == current_user %>
+
 <h3>Changer d'avatar ?</h3>
 <%= form_tag user_profile_picture_index_path(@user.id), multipart: true do %>
   <%= file_field_tag :profile_picture %>
   <%= submit_tag "mettre à jour" %>
 <% end %>
 
-
+<% end %>
 
 
 
