@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   
     def update
       @user = current_user
-      user_params = params.require(:user).permit(:first_name,:last_name,:bio,:date_of_birth, :phone_number, :profile_picture, places_attributes: [:city_name, :zip_code, :address, :latitude, :longitude])
+      user_params = params.require(:user).permit(:first_name,:last_name,:bio,:date_of_birth, :phone_number, :profile_picture, :city_name, :zip_code, :address, :latitude, :longitude)
       @user.update(user_params)
       redirect_to user_path
     end

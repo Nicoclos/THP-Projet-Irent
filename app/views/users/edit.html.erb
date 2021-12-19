@@ -1,4 +1,3 @@
-<%= form_with model: @user do |f| %>
 <section class="user-profile">
   <div class="container">
   <div class="row">
@@ -15,10 +14,10 @@
           <input type="file" class="text-center center-block file-upload" />
         </div>
       </div>
-      <!--/col-3-->
       <div class="col-sm-9">
         <div class="tab-content">
-          <form class="form" action="##" method="post" id="registrationForm">
+          <%= form_with model: @user do |f| %>
+          <!--<form class="form" action="##" method="post" id="registrationForm">-->
             <div class="form-group">
               <div class="col-sm-6">
                 <label for="first_name"><h4>Prénom</h4></label>
@@ -69,7 +68,6 @@
 
 <%= link_to 'edit password', edit_user_registration_path(current_user.id), class: "btn btn-lg btn-danger    " %> <br>
 <br>
-<%= link_to 'edit profile', edit_user_path(current_user.id), class: "btn btn-lg btn-success" %> 
 
 
               </div>
