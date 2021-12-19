@@ -68,3 +68,26 @@ align-self: auto;
 .no-error {
   margin-bottom: 400px;
 }
+
+
+.container_edit_pass{
+
+  margin: auto;
+  width: 50%;
+  border: 3px solid rgb(0, 119, 128);
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #ddd;
+  outline: none;
+
+}
+
+.input_edit_pass{
+  justify-content: center;
+  width: 35vw;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1; 
+}
