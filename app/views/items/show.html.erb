@@ -17,7 +17,7 @@
         <!----->
          <!----->
         <%if @item.img_products.attached?%>
-            <%= @item.img_products.each do |i|%>
+            <% @item.img_products.each do |i|%>
               <%= image_tag(i, class: "img-circle",width: "400")%>            
             <%end%>
         <%end%>

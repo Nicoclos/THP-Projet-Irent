@@ -9,7 +9,7 @@
           <%= form_with(model: @item, local: true, class: "w-25") do |form|%>
             <div class="form-group">
               <% if @item.img_products.attached? %>
-                <%= @item.img_products.each do |i|%>
+                <% @item.img_products.each do |i|%>
                 <%= image_tag(i, class: "img-circle",width: "400")%>
               <%end%>
           <%end%>

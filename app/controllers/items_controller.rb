@@ -36,7 +36,7 @@ class ItemsController < ApplicationController
     @item.update(item_params)
     respond_to do |format|
       if @item.save
-        format.html { redirect_to item_url(@item), notice: "Item was successfully created." }
+        format.html { redirect_to item_url(@item), notice: "L'élément a été créé avec succès." }
         format.json { render :show, status: :created, location: @item }
       else
         format.html { render :new, status: :unprocessable_entity }
