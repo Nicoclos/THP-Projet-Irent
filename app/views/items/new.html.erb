@@ -1,59 +1,55 @@
 <div class="container container-new-item-view">
   <h1>Création d'une page pour votre article </h1>  
          <!---items-pictures---->
-    <div class="row">
+  <div class="row">
     <div class="col-sm-12"><h1><%= current_user.first_name %></h1></div>
-      <div class="col-sm-9">
+      <div class="col-sm-18">
         <div class="tab-content">
           <%= form_with(model: @item, local: true, class: "w-25") do |f|%>
           <div class="form-group">
-                <% if @item.img_products.attached? %>
-                  <%= image_tag @item.img_products, style: "width: 200px; display: block"%>
-                <%end%>
-
-                <%= f.label :img_products %>
-                <%= f.file_field :img_products, class: "form-control" %>
+            <% if @item.img_products.attached? %>
+              <%= image_tag @item.img_products, style: "width: 200px; display: block"%>
+            <%end%>
+              <%= f.label :img_products %>
+              <%= f.file_field :img_products, class: "form-control" %>
           </div>
-        
-        <!------->
-            <div class="form-group">
-              <div class="col-sm-6">
-                <label for="title"><h4>Intutulé de votre objet :</h4></label>
-                <%= f.text_field :title, class: 'form-control',placeholder: "Mon objet est ..." %></li>
-              </div>
+            <!------->
+          <div class="form-group">
+            <div class="col-sm-18">
+              <label for="title"><h4>Intutulé de votre objet :</h4></label>
+              <%= f.text_field :title, class: 'form-control ',placeholder: "Mon objet est ..." %></li>
             </div>
-            <div class="form-group">
-              <div class="col-sm-6">
-                <label for="last_name"><h4>Description :</h4></label>
-                <%= f.text_area  :description, class: 'form-control',placeholder: "Description" %></li>
-              </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-18">
+              <label for="last_name"><h4>Description :</h4></label>
+              <%= f.text_area  :description, class: 'form-control',placeholder: "Description" %></li>
             </div>
-            <div class="form-group">
-              <div class="col-sm-6">
-                <label for="price"><h4>Prix :</h4></label>
-                <%= f.text_field  :price, class: 'form-control',placeholder: "Prix" %></li>
-              </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-18">
+              <label for="price"><h4>Prix :</h4></label>
+              <%= f.text_field  :price, class: 'form-control',placeholder: "Prix" %></li>
             </div>
-            <div class="form-group">
-              <div class="col-sm-6">
-                <label for="mobile"><h4>Disponibilité (en nombre de jours) :</h4></label>
-                <%= f.number_field :available_duration , class: 'form-control',placeholder: "Pour combien de temps ?" %></li>
-              </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-18">
+              <label for="mobile"><h4>Disponibilité (en nombre de jours) :</h4></label>
+              <%= f.number_field :available_duration , class: 'form-control',placeholder: "Pour combien de temps ?" %></li>
             </div>
-            <div class="form-group">
-              <div class="col-sm-6">
-                <label for="mobile"><h4>Votre catégorie</h4></label>
-                <%= f.select :category, options_for_select(["Sport", "Bricolage", "Electroménager", "Other"],:disabled => ["Select One"]), :class => 'genForm_dropBox' %>
-              </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-18">
+              <label for="mobile"><h4>Votre catégorie</h4></label>
+              <%= f.select :category, options_for_select(["Sport", "Bricolage", "Electroménager", "Other"],:disabled => ["Select One"]), :class => 'genForm_dropBox' %>
             </div>
-
-              <div class="col-sm-12">
-                      <%= f.submit "Postez votre annonce", class: "btn btn-lg btn-primary glyphicon glyphicon-ok-sign" %>
-              <% end %>
-              <%= link_to 'Retour en arrière', items_path, class: "btn btn-link"%>
-
-              </div>
-            </div>
+          </div>
+          <div class="col-sm-12">
+            <%= f.submit "Postez votre annonce", class: "btn btn-lg btn-primary glyphicon glyphicon-ok-sign" %>
+            <% end %>
+            <%= link_to 'Retour en arrière', items_path, class: "btn btn-link"%>
+          </div>
+        </div>
           </form>
         </div>
       </div>
