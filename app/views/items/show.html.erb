@@ -19,16 +19,18 @@
 <div class="container d-flex flex-direction-raw justify-content-space-around">
   <div class="col d-flex flex-direction-raw">
     <div class="col">
-      <h3 class="">Description:</h3>
-      <p class=""><%= @item.description %></p>
+      <h2 class="">Description:</h2>
+      <h4 class=""><%= @item.description %></h4>
     </div>              
   </div>
   <div class="col d-flex flex-direction-raw justify-content-center" style="float:right; text-align: right">
     <div class="col">
-      <h3 class="">Prix</h3>
-      <p class=""><%= @item.price %> €</p>
-      <h3 class="">Disponibilité (en nombre de jours) :</h3>
-      <p class=""><%= @item.available_duration %></p>
+      <h2 class="">Prix</h2>
+      <h4 class=""><%= @item.price %> €</h4>
+      <h2 class="">Disponibilité (en nombre de jours) :</h2>
+      <h4 class=""><%= @item.available_duration %></h4>
+      <h2 class="">Proposé par :</h2>
+      <%= link_to "#{@item.user.first_name}", user_path(@item.user), class: "btn btn-link" %>
     </div>              
   </div>
 </div>
@@ -38,8 +40,8 @@
 
 <div>
 	<% if logged_in? %>
-	<div style="padding-left: 100px; margin-top: 15px; margin-bottom: 40px;">
-    <%= link_to 'Acheter', order_path(@item), class: 'btn btn-success', style: 'float:right; text-align: right' %>
+	<div style="padding-left: 100px; margin-top: 15px; margin-bottom: 40px;padding-right: 110px;">
+    <%= link_to 'Acheter', order_path(@item), class: 'btn btn-success', style: "float:right;" %>
   <% end %>  
   <% if @item.user == current_user %>
     <%= link_to "Editer l'objet", edit_item_path(@item), class: 'btn btn-light' %> 

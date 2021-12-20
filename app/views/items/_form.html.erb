@@ -7,8 +7,8 @@
         <%= form_for @item do |f| %> 
             <div class="form-group">
               <div class="col-sm-6">
-                <label for="title">Title :</label>
-                <%= f.text_field :title, class: 'form-control',placeholder: "Title" %></li>
+                <label for="title">Intutulé de votre objet :</label>
+                <%= f.text_field :title, class: 'form-control',placeholder: "Mon objet est ..." %></li>
               </div>
             </div>
             <div class="form-group">
@@ -25,8 +25,8 @@
             </div>
             <div class="form-group">
               <div class="col-sm-6">
-                <label for="mobile">Période de disponibilité :</label>
-                <%= f.number_field :available_duration , class: 'form-control',placeholder: "Période de disponibilité" %></li>
+                <label for="mobile">Disponibilité (en nombre de jours) :</label>
+                <%= f.number_field :available_duration , class: 'form-control',placeholder: "Pour combien de temps ?" %></li>
               </div>
             </div>
             <div class="form-group">
@@ -43,11 +43,11 @@
               </div>
             </div>
 
-              <div class="col-sm-12">
-                      <%= f.submit "Editer votre annonce", class: "btn btn-lg btn-primary glyphicon glyphicon-ok-sign" %>
+              <div class="col-sm-12" style="padding-top: 10px;">
+                      <%= f.submit "Editer l'annonce", class: "btn btn-lg btn-primary glyphicon glyphicon-ok-sign" %>
               <% end %>
-              <%= link_to 'Profil de votre article', @item %> |
-              <%= link_to 'Retour en arrière', items_path %>
+              <%= link_to 'Profil de votre article', @item, class: "btn btn-link" %> |
+              <%= link_to 'Retour en arrière', items_path, class: "btn btn-link" %>
 
 
               </div>
