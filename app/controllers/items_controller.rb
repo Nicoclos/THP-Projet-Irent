@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
   # GET /items or /items.json
   def index
     @items = Item.all
+    
   end
 
   # GET /items/1 or /items/1.json
@@ -17,6 +18,8 @@ class ItemsController < ApplicationController
   # GET /items/new
   def new
     @item = Item.new
+    # @items = Item.find(current_user)
+
   end
 
   # GET /items/1/edit
@@ -28,7 +31,7 @@ class ItemsController < ApplicationController
   # POST /items or /items.json
   def create
 
- 
+    
     @item = Item.new(user_id:current_user.id,category_id:1)
     @item.update(item_params)
     respond_to do |format|
@@ -45,7 +48,7 @@ class ItemsController < ApplicationController
   # PATCH/PUT /items/1 or /items/1.json
   def update
     @item = Item.find(params[:id])
-    item_params = params.require(:item).permit(:title,:description,:price,:summary, :available, :available_duration, :available_start, :available_end, images_attributes: [:title,:format,:url_item_img])
+    item_params = params.require(:item).permit(:title,:description,:price,:summary, :available, :available_duration, :available_start, :available_end, :img_products, images_attributes: [:title,:format,:url_item_img])
     if @item.update(item_params)
       flash[:notice] = "produit à jour"
       redirect_to @item
@@ -74,7 +77,7 @@ class ItemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def item_params
-      params.require(:item).permit(:title, :summary, :description, :price, :available_duration, :available_start, :available_end,:title_category)
+      params.require(:item).permit(:title, :summary, :description, :price, :available_duration, :available_start, :available_end,:title_category, :img_products,)
     end
     def category_params
       params.require(:item).permit()

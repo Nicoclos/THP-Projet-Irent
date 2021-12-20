@@ -6,11 +6,13 @@
 
 <div class="span3 well">
         <center>
+        <!------>
         <%if current_user.profile_picture.attached?%>
           <%= image_tag @user.profile_picture,class: "img-circle",width: "140", height: "140", alt: 'avatar' %>
         <%else%>
           <p>Pas encore d'avatar?</p>
         <%end%>
+        <!------>
         <h3><%=@user.email%></h3>
         <em><%=@user.bio%></em>
 		</center>

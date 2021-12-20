@@ -4,6 +4,25 @@
     <div class="col-sm-12"><%= current_user.first_name %></div>
       <div class="col-sm-9">
         <div class="tab-content">
+        <!------>
+        <div class="">
+          <%= form_with(model: @item, local: true, class: "w-25") do |form|%>
+            <div class="form-group">
+              <% if @item.img_products.attached? %>
+                <%= @item.img_products.each do |i|%>
+                <%= image_tag(i, class: "img-circle",width: "400")%>
+              <%end%>
+          <%end%>
+
+              <%= form.label :img_products %>
+              <%= form.file_field :img_products, class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= form.submit "Charger photo objet", class: "btn btn-primary" %>
+            </div>
+          <%end%>
+        </div>
+        <!------>
         <%= form_for @item do |f| %> 
             <div class="form-group">
               <div class="col-sm-6">
@@ -29,13 +48,7 @@
                 <%= f.number_field :available_duration , class: 'form-control',placeholder: "Pour combien de temps ?" %></li>
               </div>
             </div>
-            <div class="form-group">
-              <div class="col-sm-6">
-                <label for="mobile">Rajouter une image :</label>    
-                <input type="file" class="text-center center-block file-upload"/>
-              </div>
-            </div>
-
+        
             <div class="form-group">
               <div class="col-sm-6">
                 <label for="mobile">Votre catégorie</label>

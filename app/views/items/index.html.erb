@@ -22,7 +22,14 @@
         <div class="col">
         
           <div class="card shadow-sm text-center card-size">
-            <img class="card-img-top" src="<%= item.img_products %>">
+          <!--------->
+          <%if item.img_products.attached?%>
+            <%= item.img_products.each do |i  |%>
+                <%= image_tag(i, class: "img-circle",width: "400")%>
+            <%end%>
+          <%end%>
+          <!--------->
+      <!--- <img class="card-img-top" src="<%= item.img_products %>"> -->
             <h5 class="card-title justify-content-between"><%= item.title %></h5>
 
             <div class="card-body">

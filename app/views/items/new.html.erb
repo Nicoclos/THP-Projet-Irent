@@ -1,10 +1,21 @@
   <div class="container container-new-item-view">
     <h1>Création d'une page pour votre article </h1>  
+         <!---items-pictures---->
     <div class="row">
     <div class="col-sm-12"><h1><%= current_user.first_name %></h1></div>
       <div class="col-sm-9">
         <div class="tab-content">
-        <%= form_for @item do |f| %> 
+          <%= form_with(model: @item, local: true, class: "w-25") do |f|%>
+          <div class="form-group">
+                <% if @item.img_products.attached? %>
+                  <%= image_tag @item.img_products, style: "width: 200px; display: block"%>
+                <%end%>
+
+                <%= f.label :img_products %>
+                <%= f.file_field :img_products, class: "form-control" %>
+          </div>
+        
+        <!------->
             <div class="form-group">
               <div class="col-sm-6">
                 <label for="title"><h4>Intutulé de votre objet :</h4></label>
@@ -29,14 +40,7 @@
                 <%= f.number_field :available_duration , class: 'form-control',placeholder: "Pour combien de temps ?" %></li>
               </div>
             </div>
-            <div class="form-group">
-              <% if cat.image.attached? %>
-                <%= image_tag cat.image, style: "width: 200px; display: block"%>
-              <%end%>
-
-              <%= form.label :image %>
-              <%= form.file_field :image, class: "form-control" %>
-            </div>
+     
            <!--- <div class="form-group">
               <div class="col-sm-6">
                 <label for="mobile"><h4>Rajouter une image :</h4></label>    
