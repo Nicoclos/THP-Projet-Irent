@@ -44,19 +44,85 @@ end
     )
 end
 Category.create(
-  title: "Sport"
+  title: "Mode",
+)
+CreateSubCategories.create(
+  title: "Vêtements", category_id: 1, 
+  title: "Chaussures", category_id: 1,
+  title: "Accessoires & Bagagerie", category_id: 1,
+  title: "Montres & Bijoux", category_id: 1,
+  title: "Equipement bébé", category_id: 1,
+  title: "Luxe et Tendance", category_id: 1,
 )
 Category.create(
-  title: "Jeux"
+  title: "Maison",
+)
+CreateSubCategories.create(
+  title: "Ameublement",  category_id: 2,
+  title: "Electroménager",  category_id: 2,
+  title: "Arts de la table",  category_id: 2,
+  title: "Décoration",  category_id: 2,
+  title: "Bricolage",  category_id: 2,
+  title: "Jardinage",  category_id: 2,
 )
 Category.create(
-  title: "Electronique"
+  title: "Multimédia",
+)
+CreateSubCategories.create(
+  title: "Informatique",  category_id: 3,
+  title: "Consoles & Jeux Vidéo",  category_id: 3,
+  title: "Téléphonie",  category_id: 3,
+  title: "Matériel audio",  category_id: 3,
+  title: "Matériel video",  category_id: 3,
 )
 Category.create(
-  title: "Ordinateur"
+  title: "Loisir",
+)
+CreateSubCategories.create(
+  title: "DVD - Films",  category_id: 4,
+  title: "CD - Musique",  category_id: 4,
+  title: "Livres",  category_id: 4,
+  title: "Sport & Hobies",  category_id: 4,
+  title: "Instruments de musique",  category_id: 4,
+  title: "Collections",  category_id: 4,
+  title: "Jeux & Jouets",  category_id: 4,
 )
 Category.create(
-  title: "Velo"
+  title: "Sport",
 )
-
+Category.create(
+  title: "Animaux",
+)
+CreateSubCategories.create(
+  title: "Cage de Transport",  category_id: 6,  
+)
+Category.create(
+  title: "Transport",
+)
+CreateSubCategories.create(
+  title: "Equipement auto",  category_id: 7,
+  title: "Equipement moto",  category_id: 7,
+)
+Category.create(
+  title: "Immobilier",
+)
+CreateSubCategories.create(
+  title: "Salle de conférence",  category_id: 8, 
+)
+Category.create(
+  title: "Matériel Professionel",
+)
+CreateSubCategories.create(
+  title: "Matériel agricole", category_id: 9,
+  title: "Outillage", category_id: 9,
+  title: "Equipement industriels", category_id: 9,
+  title: "Matériel médical", category_id: 9,
+)
+Category.create(
+  title: "Services",
+)
+CreateSubCategories.create(
+  title: "Préstation de service", category_id: 10,   
+  title: "Cours particuliers", category_id: 10,
+)
 puts "der seed is generate mein general !"
