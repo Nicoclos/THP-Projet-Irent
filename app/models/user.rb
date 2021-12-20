@@ -19,7 +19,7 @@ class User < ApplicationRecord
     end
 
 
-    has_many_attached :profile_picture
+    has_one_attached :profile_picture
 
 
   end

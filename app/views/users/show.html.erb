@@ -2,9 +2,15 @@
 
 <h1 class="text-center">Bienvenue <%=@user.first_name%></h1>
 
+
+
 <div class="span3 well">
         <center>
-        <a href="#aboutModal" data-toggle="modal" data-target="#myModal"><img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRbezqZpEuwGSvitKy3wrwnth5kysKdRqBW54cAszm_wiutku3R" name="aboutme" width="140" height="140" class="img-circle"></a>
+        <%if current_user.profile_picture.attached?%>
+          <%= image_tag @user.profile_picture,class: "img-circle",width: "140", height: "140", alt: 'avatar' %>
+        <%else%>
+          <p>Pas encore d'avatar?</p>
+        <%end%>
         <h3><%=@user.email%></h3>
         <em><%=@user.bio%></em>
 		</center>
@@ -43,35 +49,14 @@
   </div>
 </div>
 
-          <!--<form class="form" action="##" method="post" id="registrationForm">-->
-
-
-<%if current_user.profile_picture.attached?%>
-  <%= image_tag @user.profile_picture, alt: 'avatar' %>
-<%else%>
-  <p>Pas encore d'avatar?</p>
-<%end%>
-
 <center>
-
-
-
 
 <div class="mt-8">
 	<div style="padding-left: 100px; margin-top: 15px; margin-bottom: 40px;">
 <%= link_to 'Modifier informations personnelles', edit_user_path(current_user.id), class: 'btn btn-success' %>
 <%= link_to 'Editer mot le mot de passe', edit_user_registration_path(current_user.id), class: 'btn btn-danger' %>
 </div>
-	<% if logged_in? && @user == current_user %>
 
-<h3>Changer d'avatar ?</h3>
-<%= form_tag user_profile_picture_index_path(@user.id), multipart: true do %>
-  <%= file_field_tag :profile_picture %>
-  <%= submit_tag "Ok",class: 'btn btn-dark' %>
-<% end %>
-
-
-<% end %>
 </div>
 </center>
 
