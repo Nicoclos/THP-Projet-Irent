@@ -20,7 +20,6 @@
   
     <header class="navbar navbar-expand-lg navbar-light sticky p-3 bg-dark">
       <div class="container d-flex align-items-center justify-content-center justify-content-lg-start">
-        
         <div id='logo' class='navbar-brand margin-top-0'>
           <%= link_to root_path do %>
             <%= image_tag "irent_nbg_crop.png", style: "height: 80px"%>
@@ -28,52 +27,47 @@
         </div>
 
         <div class="d-flex flex-wrap width-full gap">
-            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 gap go-left">
-              <li><%= link_to 'Accueil', items_path, :class => "btn btn-outline-primary" %></li>
-              <li><%= link_to 'Le concept', teams_path, :class => "btn btn-outline-primary" %></li>
-              <li><%= link_to 'Contact', contact_index_path, :class => "btn btn-outline-primary" %></li>
-              
-              <% if user_signed_in? %>
-              <li><%= link_to 'Mettre en location', new_item_path, :class => "btn btn-outline-primary" %></li>
-              <% else %>
-
-              <% end %>            
-            </ul>
-
-
+          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 gap go-left">
+            <li><%= link_to 'Accueil', items_path, :class => "btn btn-outline-primary" %></li>
+            <li><%= link_to 'Le concept', teams_path, :class => "btn btn-outline-primary" %></li>
+            <li><%= link_to 'Contact', contact_index_path, :class => "btn btn-outline-primary" %></li>
+            
             <% if user_signed_in? %>
+            <li><%= link_to 'Mettre en location', new_item_path, :class => "btn btn-outline-primary" %></li>
+            <% else %>
+
+            <% end %>            
+          </ul>
+
+          <% if user_signed_in? %>
             <div class="text-end d-flex align-items-center gap">
               <a href="<%= destroy_user_session_path(session[:user_id]) %>" data-confirm="Es-tu sûr de vouloir te déconnecter ?" data-method="DELETE" class="btn btn-outline-secondary">Se déconnecter</a> <br>
-                      <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href=<%=user_path(current_user)  %> id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= current_user.email %>
-                        <div class="dropdown-menu" aria-labelledby="dropdown08">
-              <a class="dropdown-item" href="http://example.com">Action</a>
-              <a class="dropdown-item" href="http://example.com">Another action</a>
-              <a class="dropdown-item" href="http://example.com">Something else here</a>
+              <a class="nav-link dropdown-toggle" href=<%=user_path(current_user)  %> id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= current_user.email %>
+                <div class="dropdown-menu" aria-labelledby="dropdown08">
+                  <a class="dropdown-item" href="http://example.com">Action</a>
+                  <a class="dropdown-item" href="http://example.com">Another action</a>
+                  <a class="dropdown-item" href="http://example.com">Something else here</a>
+                </div>
+              </a>
             </div>
-          </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to "View your profile", user_path(current_user), class: "dropdown-item" %>
-            <%= link_to "Edit your profile", edit_user_path(current_user), class: "dropdown-item" %>
-          </div>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to "View your profile", user_path(current_user), class: "dropdown-item" %>
-            <%= link_to "Edit your profile", edit_user_path(current_user), class: "dropdown-item" %>
-          </div>
-        </li>
-              <% else %>
-
-            <%= link_to "Se connecter", new_user_session_path, :class => " btn btn-outline-secondary "%>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to "View your profile", user_path(current_user), class: "dropdown-item" %>
+              <%= link_to "Edit your profile", edit_user_path(current_user), class: "dropdown-item" %>
+            </div>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to "View your profile", user_path(current_user), class: "dropdown-item" %>
+              <%= link_to "Edit your profile", edit_user_path(current_user), class: "dropdown-item" %>
+            </div>
+            <% else %>
+              <%= link_to "Se connecter", new_user_session_path, :class => " btn btn-outline-secondary "%>
               <%= link_to "S'inscrire", new_user_registration_path, :class => "btn btn-outline-secondary"%> <br>
-            <% end %>
-            </div>
+          <% end %>
+          </div>
         </div>
       </div>
     </header>
-
-
-
+    
     <div class="main-container">
 
     
